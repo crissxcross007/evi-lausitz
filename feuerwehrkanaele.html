@@ -9,7 +9,10 @@
 </head>
 <body>
   <div id="menu-container"></div>
-  <main class="content">
+
+  
+  <!-- Hauptinhalt -->
+  <main class="page-content">
     <h1>🚒 Feuerwehr-Kanäle</h1>
     <p>
       In folgenden WhatsApp-Kanälen der Freiwilligen Feuerwehren findest du aktuelle Infos zu Einsätzen, Ausbildung, Jugend und viel mehr:
@@ -43,16 +46,12 @@
       .then(html => {
         document.getElementById("menu-container").innerHTML = html;
 
-        // Burger-Menü aktivieren nach Fetch
-        const burger = document.querySelector(".burger");
-        const navLinks = document.querySelector(".nav-links");
-
-        if (burger && navLinks) {
-          burger.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
-          });
-        }
+        // Burger-Menü aktivieren
+        document.querySelector(".burger")?.addEventListener("click", () => {
+          document.querySelector(".nav-links")?.classList.toggle("mobile-open");
+        });
       });
   </script>
+
 </body>
 </html>
