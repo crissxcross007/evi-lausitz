@@ -122,7 +122,10 @@ details {
   background-color: #f0f0f0;
 }
 
-/* Dropdown im mobilen Modus über JS öffnen */
+/* Für Dropdown mit Klick auf Touch */
+.dropdown-content {
+  display: none;
+}
 .dropdown-content.open {
   display: block;
 }
