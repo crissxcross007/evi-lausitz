@@ -5,16 +5,16 @@
   box-sizing: border-box;
 }
 
+/* Grundstil */
 body {
-  font-family: sans-serif;
-  line-height: 1.6;
-  background: white;
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background-color: white;
   color: #222;
 }
-
 a {
-  color: inherit;
   text-decoration: none;
+  color: inherit;
 }
 
 /* Zentrierter Seiteninhalt */
