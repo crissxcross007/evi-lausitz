@@ -123,7 +123,8 @@ details {
   display: block;
   padding: 10px;
 }
-.dropdown:hover .dropdown-content {
+.dropdown:hover > .dropdown-content,
+.dropdown-content:hover {
   display: block;
 }
 
