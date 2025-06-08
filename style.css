@@ -23,6 +23,7 @@ a {
   margin: 4rem auto;
   padding: 0 1rem;
   font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 /* ===================== */
@@ -123,14 +124,17 @@ a {
   font-weight: bold;
 }
 
-/* Logo links oben */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+/* Hauptinhalt */
+main.content {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
 }
 
-.logo img {
-  height: 32px;
-  width: auto;
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #777;
 }
