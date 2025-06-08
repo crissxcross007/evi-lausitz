@@ -55,18 +55,26 @@
   </footer>
 
   <!-- Menü laden & Burger aktivieren -->
-  <script>
-    fetch("menu.html")
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById("menu-container").innerHTML = html;
+<script>
+  fetch("menu.html")
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById("menu-container").innerHTML = html;
 
-        // Burger-Menü aktivieren
-        document.querySelector(".burger")?.addEventListener("click", () => {
-          document.querySelector(".nav-links")?.classList.toggle("mobile-open");
+      // Burger-Menü aktivieren
+      document.querySelector(".burger")?.addEventListener("click", () => {
+        document.querySelector(".nav-links")?.classList.toggle("active");
+      });
+
+      // Dropdown mobil aktivieren
+      document.querySelectorAll(".dropdown-toggle").forEach(toggle => {
+        toggle.addEventListener("click", (e) => {
+          e.preventDefault(); // Link-Verhalten unterbrechen
+          const dropdown = toggle.nextElementSibling;
+          dropdown.classList.toggle("open");
         });
       });
-  </script>
-
+    });
+</script>
 </body>
 </html>
