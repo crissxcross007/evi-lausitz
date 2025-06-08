@@ -31,16 +31,26 @@
       Kennst du weitere Kanäle? Dann schick sie uns gern zu: <a href="mailto:mail@feuerwehr-doebern.de">mail@feuerwehr-doebern.de</a>.
     </p>
   </main>
-  <footer>
-    <p><a href="impressum.html">📄 Impressum</a></p>
+
+    <footer>
+    <p>© 2025 EVI Lausitz – <a href="impressum.html">Impressum</a></p>
   </footer>
+
+  <!-- Menü laden & Burger aktivieren -->
   <script>
-    fetch("menu.html").then(r=>r.text()).then(html=>{
-      document.getElementById("menu-container").innerHTML = html;
-      document.querySelector(".burger")?.addEventListener("click",()=>{
-        document.getElementById("navLinks")?.classList.toggle("mobile-open");
+    fetch("menu.html")
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById("menu-container").innerHTML = html;
+
+        // Burger-Menü aktivieren nach Fetch
+        const burger = document.querySelector(".burger");
+        const navLinks = document.querySelector(".nav-links");
+
+        if (burger && navLinks) {
+          burger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+          });
+        }
       });
-    });
   </script>
-</body>
-</html>
