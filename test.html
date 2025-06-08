@@ -62,7 +62,7 @@
     .then(html => {
       document.getElementById("menu-container").innerHTML = html;
 
-      // Events müssen nach dem Einfügen gebunden werden
+      // Burger-Menü aktivieren
       const burger = document.querySelector(".burger");
       const navLinks = document.querySelector(".nav-links");
 
@@ -72,17 +72,20 @@
         });
       }
 
-      // Dropdown-Klick aktivieren
-      const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+      // Dropdowns auf Mobilgeräte per Klick öffnen
+      const dropdownToggles = document.querySelectorAll(".dropdown > a");
       dropdownToggles.forEach(toggle => {
         toggle.addEventListener("click", (e) => {
-          e.preventDefault();
-          const dropdown = toggle.nextElementSibling;
-          dropdown.classList.toggle("open");
+          // Nur auf kleinen Bildschirmen aktivieren
+          if (window.innerWidth <= 768) {
+            e.preventDefault(); // Link deaktivieren
+            const dropdown = toggle.parentElement;
+            const content = dropdown.querySelector(".dropdown-content");
+            content.classList.toggle("open");
+          }
         });
       });
     });
 </script>
-
 </body>
 </html>
