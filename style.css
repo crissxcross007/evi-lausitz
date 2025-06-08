@@ -65,6 +65,29 @@ a {
   cursor: pointer;
   margin-right: 1rem; /* Abstand zum rechten Rand */
 }
+/* Dropdown Menü */
+.dropdown {
+  position: relative;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 36px;
+  left: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  min-width: 160px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 999;
+}
+.dropdown-content a {
+  display: block;
+  padding: 10px;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
 
 .burger div {
   width: 25px;
