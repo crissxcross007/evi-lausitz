@@ -1,0 +1,94 @@
+<!-- menu.html -->
+<style>
+  /* Menü-Styling */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar a {
+    text-decoration: none;
+    color: #222;
+    font-weight: 500;
+  }
+
+  .burger {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .navbar ul {
+      display: none;
+      flex-direction: column;
+      background-color: white;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      border-top: 1px solid #ccc;
+    }
+
+    .navbar ul.show {
+      display: flex;
+    }
+
+    .burger {
+      display: block;
+    }
+  }
+
+  .active-link {
+    color: #e60000;
+    font-weight: bold;
+  }
+</style>
+
+<nav class="navbar">
+  <div class="navbar-logo">🔥 EVI Lausitz</div>
+  <div class="burger" onclick="toggleMenu()">☰</div>
+  <ul id="navbar-menu">
+    <li><a href="index.html">Start</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="landkreise.html">Landkreise</a></li>
+    <li><a href="karte.html">Karte</a></li>
+  </ul>
+</nav>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('navbar-menu');
+    menu.classList.toggle('show');
+  }
+
+  // Optional: aktive Seite farblich markieren
+  document.addEventListener("DOMContentLoaded", () => {
+    const links = document.querySelectorAll(".navbar a");
+    links.forEach(link => {
+      if (window.location.href.includes(link.getAttribute("href"))) {
+        link.classList.add("active-link");
+      }
+    });
+  });
+</script>
