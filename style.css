@@ -1,0 +1,103 @@
+/* Grundlegendes Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  background: white;
+  color: #222;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Zentrierter Seiteninhalt */
+.page-content {
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+  font-size: 1.1rem;
+}
+
+/* ===================== */
+/*     NAVIGATION        */
+/* ===================== */
+
+.navbar {
+  background-color: #fff;
+  padding: 1rem 2rem; /* Mehr Innenabstand oben/unten & rechts/links */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Links in der Navigation */
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* Burger-Button Styling */
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  margin-right: 1rem; /* Abstand zum rechten Rand */
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background: #333;
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    top: 100%;
+    right: 1rem;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .burger {
+    display: flex;
+  }
+}
+
+/* Aktiver Menüpunkt */
+.nav-links a.active {
+  color: #b30000;
+  font-weight: bold;
+}
+
+/* Logo links oben */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo img {
+  height: 32px;
+  width: auto;
+}
