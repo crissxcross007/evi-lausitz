@@ -50,6 +50,17 @@
   <footer>
     <p><a href="impressum.html">📄 Impressum</a> | © EVI Lausitz</p>
   </footer>
+<script>
+  fetch("menu.html")
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById("menu-container").innerHTML = html;
 
+      // Script nach Einfügen manuell aktivieren
+      document.querySelector(".burger")?.addEventListener("click", () => {
+        document.getElementById("navLinks")?.classList.toggle("mobile-open");
+      });
+    });
+</script>
 </body>
 </html>
