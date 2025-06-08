@@ -1,4 +1,45 @@
-/* Navigation allgemein */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: white;
+  color: #222;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.page-content {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+p, ul, ol {
+  margin-bottom: 1.2rem;
+}
+
+ul, ol {
+  padding-left: 1.5rem;
+}
+
+details {
+  margin-bottom: 1.5rem;
+}
+
 .navbar {
   background-color: #fff;
   padding: 1rem 2rem;
@@ -11,19 +52,29 @@
   align-items: center;
 }
 
-/* Navigation links */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.navbar-logo img {
+  height: 28px;
+  margin-right: 0.5rem;
+}
+
 .nav-links {
   display: flex;
   gap: 1.5rem;
   list-style: none;
 }
 
-.nav-links a {
-  text-decoration: none;
-  color: #222;
+.nav-links a.active {
+  color: #b30000;
+  font-weight: bold;
 }
 
-/* Dropdown */
 .dropdown {
   position: relative;
 }
@@ -39,6 +90,7 @@
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   z-index: 999;
 }
+
 .dropdown:hover .dropdown-content {
   display: block;
 }
@@ -53,7 +105,6 @@
   white-space: nowrap;
 }
 
-/* Burger-Menü */
 .burger {
   display: none;
   flex-direction: column;
@@ -68,7 +119,6 @@
   background: #333;
 }
 
-/* Responsive Menü */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
@@ -90,7 +140,6 @@
     display: flex;
   }
 
-  /* Dropdown unterhalb der Burger-Navigation */
   .dropdown-content {
     position: relative;
     top: auto;
@@ -99,4 +148,11 @@
     border: none;
     padding-left: 1rem;
   }
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #777;
 }
