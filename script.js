@@ -5,21 +5,27 @@ fetch("menu.html")
 
     const burger = document.querySelector(".burger");
     const navLinks = document.querySelector(".nav-links");
+    const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
 
+    // Burger-Menu Toggle
     if (burger && navLinks) {
       burger.addEventListener("click", () => {
         navLinks.classList.toggle("mobile-open");
       });
     }
 
-    const dropdownToggles = document.querySelectorAll(".dropdown > a");
+    // Dropdown Toggle für Mobile
     dropdownToggles.forEach(toggle => {
-      toggle.addEventListener("click", (e) => {
+      toggle.addEventListener("click", e => {
+        // Nur bei kleinen Screens aktiv
         if (window.innerWidth <= 768) {
-          e.preventDefault();
-          const dropdown = toggle.parentElement;
-          const content = dropdown.querySelector(".dropdown-content");
-          content.classList.toggle("open");
+          e.preventDefault(); // Kein Link folgen
+          const parent = toggle.closest(".dropdown");
+          const submenu = parent.querySelector(".dropdown-content");
+
+          if (submenu) {
+            submenu.classList.toggle("open");
+          }
         }
       });
     });
