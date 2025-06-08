@@ -2,52 +2,79 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>EVI Lausitz – Einsatz-Vorinformation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EVI Lausitz – Einsatzvorinformationen per WhatsApp</title>
+  <meta name="description" content="EVI Lausitz liefert anonyme, kostenlose Einsatzinfos per WhatsApp – aus Elbe-Elster, Spree-Neiße, OSL, LDS und Cottbus." />
+
+  <!-- Open Graph Meta -->
+  <meta property="og:title" content="EVI Lausitz – Einsatzinfos per WhatsApp" />
+  <meta property="og:description" content="Aktuelle Einsatzinfos anonym und kostenlos – direkt aufs Handy per WhatsApp!" />
+  <meta property="og:image" content="https://evilausitz.de/img/social-preview.jpg" />
+  <meta property="og:url" content="https://evilausitz.de" />
+  <meta property="og:type" content="website" />
+
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <meta property="og:title" content="EVI Lausitz – Einsatz-Vorinformation per WhatsApp">
-  <meta property="og:description" content="Einsatzmeldungen aus Elbe-Elster, Spree-Neiße, Oberspreewald-Lausitz, Dahme-Spreewald & Cottbus direkt aufs Handy – anonym, schnell, datenschutzkonform.">
-  <meta property="og:image" content="https://www.evilausitz.de/assets/evi-preview.png">
-  <meta property="og:url" content="https://www.evilausitz.de/">
+  <link rel="icon" type="image/jpeg" href="img/favicon.jpeg" />
 </head>
+
 <body>
-  <!-- Menü wird eingefügt -->
+
+  <!-- Dynamisches Menü -->
   <div id="menu-container"></div>
-  
-  <main class="content">
-    <h1>🚨 Willkommen bei EVI Lausitz</h1>
+
+  <!-- Hauptinhalt -->
+  <main class="main-wrapper">
+    <h1>🚨 EVI Lausitz – Regionale Einsatzvorinformationen auf WhatsApp</h1>
     <p>
-      Der WhatsApp-Kanal <strong>EVI Lausitz</strong> informiert in Echtzeit über aktuelle Einsätze der Feuerwehren in der Region – datenschutzkonform, anonym und ohne App-Installation.
+      EVI Lausitz liefert dir anonym und kostenlos Einsatzvorinformationen aus der Region –
+      direkt auf dein Smartphone über <strong>WhatsApp</strong>.
     </p>
 
     <ul>
-      <li>✅ Keine Telefonnummer sichtbar – komplett anonym</li>
-      <li>✅ Keine App nötig – direkt auf WhatsApp empfangbar</li>
-      <li>✅ Datenschutzkonform – keine Adressen oder Hausnummern</li>
-      <li>✅ Auf Wunsch stumm schaltbar – trotzdem alles im Chatverlauf</li>
+      <li>🔔 Keine App nötig – nur WhatsApp.</li>
+      <li>🕵️‍♂️ Anonym und sicher.</li>
+      <li>🕒 Chronologische Übersicht über Einsätze.</li>
+      <li>📲 Kanal abonnieren & informiert bleiben.</li>
     </ul>
 
-    <p>
-      👉 <a href="https://whatsapp.com/channel/0029Vabqtxa1noz5MgOe7L0D" target="_blank">Jetzt Hauptkanal abonnieren</a>
+    <p class="cta">
+      👉 <a class="cta-link" href="https://whatsapp.com/channel/0029Vabqtxa1noz5MgOe7L0D" target="_blank">
+        Jetzt EVI Lausitz auf WhatsApp abonnieren
+      </a>
     </p>
 
     <h2>📍 Regionale Kanäle</h2>
-    <p>Wähle deinen Landkreis aus, um noch gezielter Einsätze aus deiner Region zu erhalten:</p>
     <ul>
-      <li>🟥 <a href="#">Landkreis Elbe-Elster</a></li>
-      <li>🟩 <a href="#">Landkreis Dahme-Spreewald</a></li>
-      <li>🟦 <a href="#">Landkreis Spree-Neiße</a></li>
-      <li>🟪 <a href="#">Landkreis Oberspreewald-Lausitz</a></li>
-      <li>⬜️ <a href="#">Stadt Cottbus</a></li>
+      <li>🟥 <a href="https://whatsapp.com/channel/0029VbAnfI9AInPlODhQVV3K" target="_blank">Landkreis Elbe-Elster</a></li>
+      <li>🟪 <a href="https://whatsapp.com/channel/0029VbADYtq4SpkOz4Pc7x28" target="_blank">OSL</a></li>
+      <li>🟩 <a href="https://whatsapp.com/channel/0029Vb5jA22BvvshQme3S341" target="_blank">LDS</a></li>
+      <li>🟦 <a href="https://whatsapp.com/channel/0029Vb9zdpT11ulGlwf18l3K" target="_blank">SPN</a></li>
+      <li>🟨 <a href="lk-cottbus.html">Cottbus</a></li>
     </ul>
   </main>
 
+  <!-- Footer -->
   <footer>
-    <p><a href="impressum.html">Impressum</a></p>
+    <p>&copy; 2025 EVI Lausitz – <a href="impressum.html">Impressum</a></p>
   </footer>
-</body>
 
-  <script src="menu.js"></script>
+  <!-- Menü dynamisch einfügen + JS direkt hier -->
+  <script>
+    // Menü aus externer Datei laden
+    fetch('menu.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('menu-container').innerHTML = html;
+
+        // Burger-Button nach dem Laden aktivieren
+        const toggle = document.getElementById("menu-toggle");
+        const links = document.querySelector(".nav-links");
+        if (toggle && links) {
+          toggle.addEventListener("click", () => {
+            links.classList.toggle("show");
+          });
+        }
+      });
+  </script>
 </body>
 </html>
