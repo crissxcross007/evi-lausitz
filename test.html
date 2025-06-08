@@ -56,22 +56,18 @@
     <p>&copy; 2025 EVI Lausitz – <a href="impressum.html">Impressum</a></p>
   </footer>
 
-  <!-- Menü dynamisch einfügen + JS direkt hier -->
-  <script>
-    // Menü aus externer Datei laden
-    fetch('menu.html')
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById('menu-container').innerHTML = html;
 
-        // Burger-Button nach dem Laden aktivieren
-        const toggle = document.getElementById("menu-toggle");
-        const links = document.querySelector(".nav-links");
-        if (toggle && links) {
-          toggle.addEventListener("click", () => {
-            links.classList.toggle("show");
-          });
-        }
+  <!-- Menü einfügen + JS aktivieren -->
+  <script>
+    fetch("menu.html")
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById("menu-container").innerHTML = html;
+
+        // Burger-Menü nachträglich aktivieren
+        document.querySelector(".burger")?.addEventListener("click", () => {
+          document.getElementById("navLinks")?.classList.toggle("mobile-open");
+        });
       });
   </script>
 </body>
