@@ -22,7 +22,7 @@
 
   <!-- Hauptinhalt -->
   <main class="page-content">
-    <h1>🚒 EVI Lausitz v1.2</h1>
+    <h1>🚒 EVI Lausitz v1.3</h1>
   <p><strong>EVI</strong> steht für <em>Einsatz-Vor-Information</em> – direkt aus der Leitstelle Lausitz (Cottbus), in Echtzeit auf dein Handy.</p>
   <p>Du bekommst <strong>automatisch Feuerwehr-Einsätze</strong> aus der Region per WhatsApp – schnell, anonym & kostenlos.</p>
 
@@ -57,27 +57,27 @@
 
   <!-- Menü laden & Burger aktivieren -->
 <script>
-    fetch("menu.html")
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById("menu-container").innerHTML = html;
+  fetch("menu.html")
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById("menu-container").innerHTML = html;
 
-        // BURGER-MENÜ aktivieren
-        const burger = document.querySelector(".burger");
-        const navLinks = document.querySelector(".nav-links");
-        burger?.addEventListener("click", () => {
-          navLinks?.classList.toggle("active");
-        });
+      // Burger-Menü öffnen
+      const burger = document.querySelector(".burger");
+      const navLinks = document.querySelector(".nav-links");
+      burger?.addEventListener("click", () => {
+        navLinks?.classList.toggle("active");
+      });
 
-        // DROPDOWN auf Touch-Geräten
-        document.querySelectorAll(".dropdown-toggle").forEach(toggle => {
-          toggle.addEventListener("click", function (e) {
-            e.preventDefault();
-            const dropdown = this.nextElementSibling;
-            dropdown?.classList.toggle("open");
-          });
+      // Dropdown-Klick in mobiler Ansicht
+      document.querySelectorAll(".dropdown-toggle").forEach(toggle => {
+        toggle.addEventListener("click", function (e) {
+          e.preventDefault();
+          const dropdown = this.nextElementSibling;
+          dropdown?.classList.toggle("open");
         });
       });
-  </script>
+    });
+</script>
 </body>
 </html>
