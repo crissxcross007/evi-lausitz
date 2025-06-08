@@ -1,50 +1,4 @@
-/* === Reset und Grundstil === */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: sans-serif;
-  background-color: white;
-  color: #222;
-  line-height: 1.6;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* === Zentrierter Seiteninhalt === */
-.page-content {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-  font-size: 1.1rem;
-}
-
-/* Überschriften und Absätze */
-h1, h2, h3 {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-}
-
-p {
-  margin-bottom: 1.2rem;
-}
-
-ul, ol {
-  margin-bottom: 1.2rem;
-  padding-left: 1.5rem;
-}
-
-details {
-  margin-bottom: 1.5rem;
-}
-
-/* === Navigation === */
+/* Navigation allgemein */
 .navbar {
   background-color: #fff;
   padding: 1rem 2rem;
@@ -57,37 +11,16 @@ details {
   align-items: center;
 }
 
-.navbar-logo {
-  display: flex;
-  align-items: center;
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #b30000;
-}
-.navbar-logo img {
-  height: 28px;
-  margin-right: 0.5rem;
-}
-
-/* Navigation Links */
+/* Navigation links */
 .nav-links {
   display: flex;
   gap: 1.5rem;
-  position: relative;
-}
-.navbar ul,
-.navbar li {
   list-style: none;
 }
 
 .nav-links a {
-  padding: 0.5rem 1rem;
-  display: block;
-}
-
-.nav-links a.active {
-  color: #b30000;
-  font-weight: bold;
+  text-decoration: none;
+  color: #222;
 }
 
 /* Dropdown */
@@ -98,36 +31,26 @@ details {
 .dropdown-content {
   display: none;
   position: absolute;
-  top: 100%;
+  top: 36px;
   left: 0;
   background-color: white;
   border: 1px solid #ddd;
-  min-width: 180px;
+  min-width: 160px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   z-index: 999;
 }
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
-.dropdown:hover .dropdown-content,
-.dropdown:focus-within .dropdown-content {
+.dropdown-content.open {
   display: block;
 }
 
 .dropdown-content a {
-  padding: 10px 15px;
+  display: block;
+  padding: 10px;
   white-space: nowrap;
-  display: block;
-}
-
-.dropdown-content a:hover {
-  background-color: #f0f0f0;
-}
-
-/* Für Dropdown mit Klick auf Touch */
-.dropdown-content {
-  display: none;
-}
-.dropdown-content.open {
-  display: block;
 }
 
 /* Burger-Menü */
@@ -136,7 +59,7 @@ details {
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
-  margin-right: 1rem;
+  margin-left: auto;
 }
 
 .burger div {
@@ -145,20 +68,21 @@ details {
   background: #333;
 }
 
-/* Responsive Navigation */
+/* Responsive Menü */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
     flex-direction: column;
-    background-color: white;
     position: absolute;
     top: 100%;
-    right: 1rem;
-    padding: 1rem;
+    right: 2rem;
+    background: white;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 1rem;
+    border-radius: 0.5rem;
   }
 
-  .nav-links.mobile-open {
+  .nav-links.active {
     display: flex;
   }
 
@@ -166,49 +90,13 @@ details {
     display: flex;
   }
 
-  .dropdown:hover .dropdown-content {
-    display: none; /* Deaktivieren auf Mobil */
-  }
-
+  /* Dropdown unterhalb der Burger-Navigation */
   .dropdown-content {
     position: relative;
-    border: none;
+    top: auto;
+    left: auto;
     box-shadow: none;
+    border: none;
+    padding-left: 1rem;
   }
-}
-
-/* === Footer === */
-footer {
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-  color: #777;
-}
-
-/* === WhatsApp-Stil Box für Kanäle === */
-.kanalbox {
-  border: 2px solid #25D366;
-  background-color: #eafff3;
-  padding: 1rem;
-  border-radius: 10px;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  transition: transform 0.2s ease;
-}
-
-.kanalbox:hover {
-  transform: scale(1.02);
-  background-color: #d8ffe9;
-}
-
-.kanalbox a {
-  color: #075e54;
-  font-weight: bold;
-  font-size: 1.1rem;
-  display: inline-block;
-}
-
-.kanalbox::before {
-  content: "💬 ";
-  font-size: 1.2rem;
 }
