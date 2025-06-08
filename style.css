@@ -26,6 +26,28 @@ a {
   line-height: 1.6;
 }
 
+/* Überschriften mit Abstand davor */
+h1, h2, h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Absätze mit Abstand unten */
+p {
+  margin-bottom: 1.2rem;
+}
+
+/* Listen ebenfalls mit Abstand */
+ul, ol {
+  margin-bottom: 1.2rem;
+  padding-left: 1.5rem;
+}
+
+/* Abstand zwischen Fragen und Antworten in FAQ */
+details {
+  margin-bottom: 1.5rem;
+}
+
 /* ===================== */
 /*     NAVIGATION        */
 /* ===================== */
