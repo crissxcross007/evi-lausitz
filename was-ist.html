@@ -28,22 +28,26 @@
     </p>
   </main>
 
-  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 EVI Lausitz – <a href="impressum.html">Impressum</a></p>
+    <p>© 2025 EVI Lausitz – <a href="impressum.html">Impressum</a></p>
   </footer>
 
-  <!-- Menü einfügen + JS aktivieren -->
+  <!-- Menü laden & Burger aktivieren -->
   <script>
     fetch("menu.html")
       .then(response => response.text())
       .then(html => {
         document.getElementById("menu-container").innerHTML = html;
 
-        // Burger-Menü nachträglich aktivieren
-        document.querySelector(".burger")?.addEventListener("click", () => {
-          document.getElementById("navLinks")?.classList.toggle("mobile-open");
-        });
+        // Burger-Menü aktivieren nach Fetch
+        const burger = document.querySelector(".burger");
+        const navLinks = document.querySelector(".nav-links");
+
+        if (burger && navLinks) {
+          burger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+          });
+        }
       });
   </script>
 </body>
