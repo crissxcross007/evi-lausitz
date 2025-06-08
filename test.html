@@ -58,25 +58,19 @@
   <!-- Menü laden & Burger aktivieren -->
 <script>
   fetch("menu.html")
-    .then(response => response.text())
+    .then(res => res.text())
     .then(html => {
       document.getElementById("menu-container").innerHTML = html;
 
-      // Burger-Menü öffnen
+      // Nach dem Laden: Burger-Button aktivieren
       const burger = document.querySelector(".burger");
       const navLinks = document.querySelector(".nav-links");
-      burger?.addEventListener("click", () => {
-        navLinks?.classList.toggle("active");
-      });
 
-      // Dropdown-Klick in mobiler Ansicht
-      document.querySelectorAll(".dropdown-toggle").forEach(toggle => {
-        toggle.addEventListener("click", function (e) {
-          e.preventDefault();
-          const dropdown = this.nextElementSibling;
-          dropdown?.classList.toggle("open");
+      if (burger && navLinks) {
+        burger.addEventListener("click", () => {
+          navLinks.classList.toggle("active");
         });
-      });
+      }
     });
 </script>
 </body>
