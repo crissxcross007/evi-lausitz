@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Interaktive Karte der Landkreise in Brandenburg mit Verlinkung zu EVI WhatsApp-Kanälen." />
+  <title>EVI Lausitz – Interaktive Landkreis-Karte</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="/assets/logo.svg" alt="EVI Logo" height="40">
+      <span>EVI Lausitz</span>
+    </div>
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html">🏠 Start</a></li>
+        <li><a href="faq.html">❓ FAQ</a></li>
+        <li><a href="karte.html" class="active">🗺️ Karte</a></li>
+        <li class="dropdown">
+          <a href="#">📍 Landkreise</a>
+          <ul class="dropdown-content">
+            <li><a href="spree-neisse.html">SPN</a></li>
+            <li><a href="osl.html">OSL</a></li>
+            <li><a href="lds.html">LDS</a></li>
+            <li><a href="elbe-elster.html">EE</a></li>
+            <li><a href="cottbus.html">Cottbus</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="content">
+      <h1>🗺️ Interaktive Karte – Wähle deinen Landkreis</h1>
+      <p>Klicke auf deinen Landkreis in der Karte, um direkt zur passenden EVI-Seite oder WhatsApp-Kanal zu gelangen.</p>
+
+      <div class="map-container">
+        <svg viewBox="0 0 500 500" class="svg-map" xmlns="http://www.w3.org/2000/svg">
+          <a href="spree-neisse.html">
+            <path d="M150,150 L200,150 L200,200 L150,200 Z" fill="#88c0d0" stroke="#2e3440" stroke-width="2">
+              <title>Spree-Neiße (SPN)</title>
+            </path>
+          </a>
+          <a href="osl.html">
+            <path d="M210,150 L260,150 L260,200 L210,200 Z" fill="#a3be8c" stroke="#2e3440" stroke-width="2">
+              <title>Oberspreewald-Lausitz (OSL)</title>
+            </path>
+          </a>
+          <a href="lds.html">
+            <path d="M150,210 L200,210 L200,260 L150,260 Z" fill="#ebcb8b" stroke="#2e3440" stroke-width="2">
+              <title>Dahme-Spreewald (LDS)</title>
+            </path>
+          </a>
+          <a href="elbe-elster.html">
+            <path d="M90,150 L140,150 L140,200 L90,200 Z" fill="#d08770" stroke="#2e3440" stroke-width="2">
+              <title>Elbe-Elster (EE)</title>
+            </path>
+          </a>
+          <a href="cottbus.html">
+            <circle cx="180" cy="180" r="10" fill="#bf616a">
+              <title>Cottbus</title>
+            </circle>
+          </a>
+        </svg>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 EVI Lausitz · <a href="impressum.html">Impressum</a></p>
+  </footer>
+</body>
+</html>
