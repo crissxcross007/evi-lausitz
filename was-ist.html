@@ -3,31 +3,77 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Was ist EVI?</title>
+  <title>Was ist EVI Lausitz?</title>
+  <meta name="description" content="Erfahre, was hinter dem EVI Lausitz WhatsApp-Kanal steckt. Regionale Feuerwehr-Einsatzinformationen in Echtzeit.">
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="img/favicon.png" />
 </head>
 <body>
-  <header>
-    <h1>Was ist EVI?</h1>
-    <nav>
-      <a href="index.html">Start</a>
-      <a href="was-ist.html">Was ist EVI?</a>
-      <a href="faq.html">FAQ</a>
-      <a href="impressum.html">Impressum</a>
-    </nav>
-  </header>
 
-  <main>
+  <!-- Menü -->
+  <div id="menu-container"></div>
+  <script>
+    fetch("menu.html")
+      .then(response => response.text())
+      .then(html => document.getElementById("menu-container").innerHTML = html);
+  </script>
+
+  <main class="content">
+    <h1>ℹ️ Was ist EVI Lausitz?</h1>
+
     <p>
-      EVI Lausitz (Einsatz-Vorinformation) ist ein technisches Projekt der Feuerwehr Döbern. Ziel ist es, aktuelle Einsatzinformationen aus der Leitstelle Lausitz automatisiert und anonym per WhatsApp bereitzustellen.
+      <strong>EVI Lausitz</strong> steht für <em>Einsatz-Vorinformation Lausitz</em>. 
+      Der Dienst bietet dir kostenlos aktuelle Feuerwehr-Einsatzinformationen direkt auf dein Smartphone – über WhatsApp.
     </p>
+
+    <h2>📱 Wie funktioniert es?</h2>
     <p>
-      Die Idee stammt aus dem ehemaligen Twitter-Projekt „EVI Twitter“ – nun modernisiert für WhatsApp-Kanäle.
+      EVI nutzt die neue <strong>WhatsApp-Kanal-Funktion</strong>, um Einsatzmeldungen anonym, datensparsam und automatisch zu verbreiten.
+      Du brauchst keine zusätzliche App oder Registrierung.
+    </p>
+
+    <h2>🔒 Ist das anonym?</h2>
+    <p>
+      Ja. Als Abonnent eines EVI-Kanals sieht niemand deine Telefonnummer. Auch du siehst keine anderen Abonnenten. 
+      Du bleibst vollständig anonym.
+    </p>
+
+    <h2>📬 Welche Infos werden geteilt?</h2>
+    <ul>
+      <li>Datum & Uhrzeit des Einsatzes</li>
+      <li>Einsatzstichwort (z. B. „Brand Wald“, „Verkehrsunfall“)</li>
+      <li>Ort oder Gemeinde (z. B. Guben, Döbern, Forst)</li>
+      <li>Keine Hausnummern, keine Namen – DSGVO-konform</li>
+    </ul>
+
+    <h2>🔕 Muss ich Push-Benachrichtigungen aktivieren?</h2>
+    <p>
+      Nein. Du kannst den Kanal auch <strong>stumm schalten</strong> und verpasst trotzdem nichts – alle Einsätze erscheinen chronologisch im WhatsApp-Kanal-Verlauf.
+    </p>
+
+    <h2>🌍 Für welche Regionen gibt es EVI?</h2>
+    <p>
+      EVI Lausitz bietet Kanäle für folgende Landkreise:
+    </p>
+    <ul>
+      <li>🟥 <a href="evi-spn.html">Spree-Neiße (SPN)</a></li>
+      <li>🟦 <a href="osL.html">Oberspreewald-Lausitz (OSL)</a></li>
+      <li>🟩 <a href="dahme-spreewald.html">Dahme-Spreewald (LDS)</a></li>
+      <li>🟥 <a href="elbe-elster.html">Elbe-Elster (EE)</a></li>
+      <li>🟨 <a href="cottbus.html">Stadt Cottbus (CB)</a></li>
+    </ul>
+
+    <p>
+      Du kannst dich für deinen Wunschlandkreis abonnieren – oder mehrere.
     </p>
   </main>
 
+  <!-- Footer -->
   <footer>
-    <p><a href="impressum.html">Impressum</a></p>
+    <p>
+      🔗 <a href="impressum.html">Impressum</a> | © EVI Lausitz
+    </p>
   </footer>
+
 </body>
 </html>
