@@ -2,54 +2,50 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EVI Lausitz – Einsatz-Vorinformation für Brandenburg</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EVI Lausitz – Einsatz-Vorinformation</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
-  <meta property="og:title" content="EVI Lausitz – Einsatzvorinformationen auf WhatsApp" />
-  <meta property="og:description" content="Einsatzinfos direkt aufs Handy – anonym, ohne App, nur per WhatsApp. Jetzt abonnieren." />
-  <meta property="og:image" content="img/social-preview.jpg" />
-  <meta property="og:url" content="https://evilausitz.de/" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <meta property="og:title" content="EVI Lausitz – Einsatz-Vorinformation per WhatsApp">
+  <meta property="og:description" content="Einsatzmeldungen aus Elbe-Elster, Spree-Neiße, Oberspreewald-Lausitz, Dahme-Spreewald & Cottbus direkt aufs Handy – anonym, schnell, datenschutzkonform.">
+  <meta property="og:image" content="https://www.evilausitz.de/assets/evi-preview.png">
+  <meta property="og:url" content="https://www.evilausitz.de/">
 </head>
 <body>
-
-  <!-- 🔝 Header mit Sticky Navigation -->
-  <header>
-    <div class="logo">
-      <span>🚒</span>
-      <span><H2>EVI Lausitz</H2></span>
-    </div>
-<div id="menu-container"></div>
-<script>
-  fetch("menu.html")
-    .then(r => r.text())
-    .then(d => document.getElementById("menu-container").innerHTML = d);
-</script>
-  </header>
-
-  <!-- 📄 Hauptinhalt -->
-  <main>
-    <h1>🚒 EVI Lausitz – Feuerwehr-Einsätze frühzeitig wissen</h1>
+  <div id="menu-placeholder"></div>
+  
+  <main class="content">
+    <h1>🚨 Willkommen bei EVI Lausitz</h1>
     <p>
-      Der WhatsApp-Kanal <strong>EVI Lausitz</strong> liefert dir aktuelle Einsatzvorinformationen aus deiner Region direkt auf dein Smartphone – anonym, kostenlos und ohne zusätzliche App. 
+      Der WhatsApp-Kanal <strong>EVI Lausitz</strong> informiert in Echtzeit über aktuelle Einsätze der Feuerwehren in der Region – datenschutzkonform, anonym und ohne App-Installation.
     </p>
 
-    <p>
-      ✅ Keine Telefonnummern sichtbar · ✅ Keine App nötig · ✅ Datenschutzkonform
-    </p>
+    <ul>
+      <li>✅ Keine Telefonnummer sichtbar – komplett anonym</li>
+      <li>✅ Keine App nötig – direkt auf WhatsApp empfangbar</li>
+      <li>✅ Datenschutzkonform – keine Adressen oder Hausnummern</li>
+      <li>✅ Auf Wunsch stumm schaltbar – trotzdem alles im Chatverlauf</li>
+    </ul>
 
     <p>
-      Jetzt abonnieren:
-      <a href="https://whatsapp.com/channel/0029Vabqtxa1noz5MgOe7L0D" class="cta-button">➡ Zum WhatsApp-Kanal</a>
+      👉 <a href="https://whatsapp.com/channel/0029Vabqtxa1noz5MgOe7L0D" target="_blank">Jetzt Hauptkanal abonnieren</a>
     </p>
+
+    <h2>📍 Regionale Kanäle</h2>
+    <p>Wähle deinen Landkreis aus, um noch gezielter Einsätze aus deiner Region zu erhalten:</p>
+    <ul>
+      <li>🟥 <a href="#">Landkreis Elbe-Elster</a></li>
+      <li>🟩 <a href="#">Landkreis Dahme-Spreewald</a></li>
+      <li>🟦 <a href="#">Landkreis Spree-Neiße</a></li>
+      <li>🟪 <a href="#">Landkreis Oberspreewald-Lausitz</a></li>
+      <li>⬜️ <a href="#">Stadt Cottbus</a></li>
+    </ul>
   </main>
 
-  <!-- 🔻 Footer -->
   <footer>
-    <p>&copy; 2025 EVI Lausitz</p>
-    <p><a href="impressum.html">📄 Impressum</a></p>
+    <p><a href="impressum.html">Impressum</a></p>
   </footer>
 
+  <script src="menu.js"></script>
 </body>
 </html>
