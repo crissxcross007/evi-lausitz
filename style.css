@@ -75,6 +75,10 @@ details {
   gap: 1.5rem;
   position: relative;
 }
+.navbar ul,
+.navbar li {
+  list-style: none;
+}
 
 .nav-links a {
   padding: 0.5rem 1rem;
