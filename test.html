@@ -58,17 +58,18 @@
 
 
   <!-- Menü einfügen + JS aktivieren -->
-  <script>
-    fetch("menu.html")
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById("menu-container").innerHTML = html;
+<script>
+  fetch("menu.html")
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById("menu-container").innerHTML = html;
 
-        // Burger-Menü nachträglich aktivieren
-        document.querySelector(".burger")?.addEventListener("click", () => {
-          document.getElementById("navLinks")?.classList.toggle("mobile-open");
-        });
+      // Burger-Menü nachträglich aktivieren (Korrekt und vollständig!)
+      document.querySelector(".burger")?.addEventListener("click", () => {
+        document.getElementById("navLinks")?.classList.toggle("mobile-open");
       });
-  </script>
+    });
+</script>
+
 </body>
 </html>
