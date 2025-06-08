@@ -122,6 +122,11 @@ details {
   background-color: #f0f0f0;
 }
 
+/* Dropdown im mobilen Modus über JS öffnen */
+.dropdown-content.open {
+  display: block;
+}
+
 /* Burger-Menü */
 .burger {
   display: none;
