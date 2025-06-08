@@ -1,24 +1,26 @@
 <header>
   <nav class="navbar">
     <div class="navbar-logo">
-      <img src="img/favicon.jpeg" alt="EVI" />
-      EVI Lausitz
+      <img src="img/favicon.png" alt="EVI Logo" />
+      <a href="index.html">EVI Lausitz</a>
     </div>
     <div class="burger" onclick="toggleMenu()">
       <div></div><div></div><div></div>
     </div>
     <div class="nav-links" id="navLinks">
-      <a href="index.html">🏠 Start</a>
-      <a href="was-ist.html" class="active">ℹ️ Was ist EVI?</a>
+      <a href="test.html">🏠 Start</a>
+      <a href="was-ist.html">ℹ️ Was ist EVI?</a>
       <a href="faq.html">❓ FAQ</a>
+      <a href="karte.html">🗺️ Karte</a>
+      <a href="feuerwehrkanaele.html">🚒 Feuerwehr-Kanäle</a>
       <div class="dropdown">
         <a href="#">📍 Landkreise ▾</a>
         <div class="dropdown-content">
-          <a href="spree-neisse.html">🟥 Spree-Neiße</a>
-          <a href="osL.html">🟦 OSL</a>
+          <a href="evi-spn.html">🟦 SPN</a>
+          <a href="osl.html">🟪 OSL</a>
           <a href="dahme-spreewald.html">🟩 LDS</a>
           <a href="elbe-elster.html">🟥 EE</a>
-          <a href="cottbus.html">🟨 Cottbus</a>
+          <a href="cottbus.html">🟨 CB</a>
         </div>
       </div>
     </div>
@@ -26,8 +28,7 @@
 </header>
 
 <script>
-  function toggleMenu() {
-    const nav = document.getElementById("navLinks");
-    nav.classList.toggle("mobile-open");
-  }
+function toggleMenu() {
+  document.getElementById("navLinks").classList.toggle("mobile-open");
+}
 </script>
