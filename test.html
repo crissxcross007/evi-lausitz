@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EVI Lausitz – Einsatzvorinformationen per WhatsApp</title>
-  <meta name="description" content="EVI Lausitz liefert kostenlose Einsatzinfos per WhatsApp – aus EE, SPN, OSL, LDS und Cottbus." />
+  <title>EVI Lausitz – Start</title>
 
-  <!-- Open Graph Meta -->
-  <meta property="og:title" content="EVI Lausitz – Einsatzinfos per WhatsApp" />
-  <meta property="og:description" content="Aktuelle Einsatzinfos anonym und kostenlos – direkt aufs Handy per WhatsApp!" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="EVI Lausitz" />
+  <meta property="og:description" content="Informationen, FAQ und Feuerwehr-Kanäle für die Lausitz." />
   <meta property="og:image" content="https://evilausitz.de/img/social-preview.jpg" />
   <meta property="og:url" content="https://evilausitz.de" />
   <meta property="og:type" content="website" />
@@ -16,10 +15,9 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/jpeg" href="img/favicon.jpeg" />
 </head>
-
 <body>
 
-  <!-- Dynamisches Menü -->
+  <!-- Menü wird hier eingefügt -->
   <div id="menu-container"></div>
 
   <!-- Hauptinhalt -->
@@ -48,28 +46,30 @@
   <h2>💬 Weitererzählen hilft!</h2>
   <p>Unser Kanal ist in der WhatsApp-Suche (noch) nicht sichtbar – teile ihn gern mit anderen oder in deinem Status.</p>
 
+  </main>
 
 
-
-  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 EVI Lausitz – <a href="impressum.html">Impressum</a></p>
+    <p>© 2025 EVI Lausitz – <a href="impressum.html">Impressum</a></p>
   </footer>
 
+  <!-- Menü laden & Burger aktivieren -->
+  <script>
+    fetch("menu.html")
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById("menu-container").innerHTML = html;
 
-  <!-- Menü einfügen + JS aktivieren -->
-<script>
-  fetch("menu.html")
-    .then(response => response.text())
-    .then(html => {
-      document.getElementById("menu-container").innerHTML = html;
+        // Burger-Menü aktivieren nach Fetch
+        const burger = document.querySelector(".burger");
+        const navLinks = document.querySelector(".nav-links");
 
-      // Burger-Menü nachträglich aktivieren (Korrekt und vollständig!)
-      document.querySelector(".burger")?.addEventListener("click", () => {
-        document.getElementById("navLinks")?.classList.toggle("mobile-open");
+        if (burger && navLinks) {
+          burger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+          });
+        }
       });
-    });
-</script>
-
+  </script>
 </body>
 </html>
