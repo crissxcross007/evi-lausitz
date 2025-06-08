@@ -62,16 +62,27 @@
     .then(html => {
       document.getElementById("menu-container").innerHTML = html;
 
-      // Nach dem Laden: Burger-Button aktivieren
+      // Events müssen nach dem Einfügen gebunden werden
       const burger = document.querySelector(".burger");
       const navLinks = document.querySelector(".nav-links");
 
       if (burger && navLinks) {
         burger.addEventListener("click", () => {
-          navLinks.classList.toggle("active");
+          navLinks.classList.toggle("mobile-open");
         });
       }
+
+      // Dropdown-Klick aktivieren
+      const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+      dropdownToggles.forEach(toggle => {
+        toggle.addEventListener("click", (e) => {
+          e.preventDefault();
+          const dropdown = toggle.nextElementSibling;
+          dropdown.classList.toggle("open");
+        });
+      });
     });
 </script>
+
 </body>
 </html>
