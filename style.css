@@ -129,12 +129,13 @@ details {
   background-color: #f0f0f0;
 }
 
+/* Hover- und Tastaturzugänglichkeit */
 .dropdown:hover .dropdown-content,
 .dropdown:focus-within .dropdown-content {
   display: block;
 }
 
-/* Mobile: .open Klasse für Dropdown sichtbar */
+/* Mobile: Sichtbar durch JS-Klasse */
 .dropdown-content.open {
   display: block;
 }
@@ -176,8 +177,9 @@ details {
     display: flex;
   }
 
+  /* Hover deaktivieren auf Touch */
   .dropdown:hover .dropdown-content {
-    display: none; /* Hover auf Mobil deaktivieren */
+    display: none;
   }
 
   .dropdown-content {
