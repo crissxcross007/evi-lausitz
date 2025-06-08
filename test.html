@@ -22,7 +22,7 @@
 
   <!-- Hauptinhalt -->
   <main class="page-content">
-    <h1>🚒 EVI Lausitz v1.6</h1>
+    <h1>🚒 EVI Lausitz v1.7</h1>
   <p><strong>EVI</strong> steht für <em>Einsatz-Vor-Information</em> – direkt aus der Leitstelle Lausitz (Cottbus), in Echtzeit auf dein Handy.</p>
   <p>Du bekommst <strong>automatisch Feuerwehr-Einsätze</strong> aus der Region per WhatsApp – schnell, anonym & kostenlos.</p>
 
@@ -56,33 +56,10 @@
   </footer>
 
   <!-- Menü laden & Burger aktivieren -->
-<script>
-  fetch("menu.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("menu-container").innerHTML = html;
+  <footer>
+    &copy; 2025 EVILausitz
+  </footer>
 
-      const burger = document.querySelector(".burger");
-      const navLinks = document.querySelector(".nav-links");
-
-      if (burger && navLinks) {
-        burger.addEventListener("click", () => {
-          navLinks.classList.toggle("mobile-open"); // ✅ genau dieser Name!
-        });
-      }
-
-      const dropdownToggles = document.querySelectorAll(".dropdown > a");
-      dropdownToggles.forEach(toggle => {
-        toggle.addEventListener("click", (e) => {
-          if (window.innerWidth <= 768) {
-            e.preventDefault();
-            const dropdown = toggle.parentElement;
-            const content = dropdown.querySelector(".dropdown-content");
-            content.classList.toggle("open");
-          }
-        });
-      });
-    });
-</script>
+  <script src="script.js"></script>
 </body>
 </html>
