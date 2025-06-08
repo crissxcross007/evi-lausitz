@@ -46,6 +46,7 @@ a {
 .nav-links {
   display: flex;
   gap: 1.5rem;
+  font-color: #b30000;
 }
 .navbar-logo {
   display: flex;
