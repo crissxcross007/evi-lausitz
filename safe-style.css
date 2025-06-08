@@ -75,9 +75,12 @@ details {
   gap: 1.5rem;
   position: relative;
 }
-.navbar ul,
-.navbar li {
+
+.nav-links ul,
+.nav-links li {
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links a {
@@ -107,11 +110,6 @@ details {
   z-index: 999;
 }
 
-.dropdown:hover .dropdown-content,
-.dropdown:focus-within .dropdown-content {
-  display: block;
-}
-
 .dropdown-content a {
   padding: 10px 15px;
   white-space: nowrap;
@@ -122,12 +120,18 @@ details {
   background-color: #f0f0f0;
 }
 
-/* Für Dropdown mit Klick auf Touch */
-.dropdown-content {
-  display: none;
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+  display: block;
 }
+
+/* Für Dropdown mit Klick auf Touch */
 .dropdown-content.open {
   display: block;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
 }
 
 /* Burger-Menü */
@@ -147,6 +151,9 @@ details {
 
 /* Responsive Navigation */
 @media (max-width: 768px) {
+  .dropdown:hover .dropdown-content {
+    display: none; /* Deaktivieren auf Touch-Geräten */
+  }
   .nav-links {
     display: none;
     flex-direction: column;
@@ -156,6 +163,7 @@ details {
     right: 1rem;
     padding: 1rem;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 1001;
   }
 
   .nav-links.mobile-open {
@@ -166,14 +174,22 @@ details {
     display: flex;
   }
 
+  /* Dropdown-Menü im mobilen Menü */
   .dropdown:hover .dropdown-content {
-    display: none; /* Deaktivieren auf Mobil */
+    display: none; /* Deaktivieren Hover auf Touch */
   }
 
   .dropdown-content {
     position: relative;
     border: none;
     box-shadow: none;
+    top: auto;
+    left: auto;
+    background: none;
+  }
+
+  .dropdown-content a {
+    padding-left: 1.5rem;
   }
 }
 
