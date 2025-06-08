@@ -70,9 +70,6 @@
       document.querySelectorAll(".dropdown-toggle").forEach(toggle => {
         toggle.addEventListener("click", (e) => {
           e.preventDefault(); 
-      // Link-Verhalten unterbrechen
-          const dropdown = toggle.nextElementSibling;
-          dropdown.classList.toggle("open");
         });
     });
 </script>
