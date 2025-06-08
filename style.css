@@ -16,7 +16,6 @@ header {
   position: sticky;
   top: 5;
   background-color: white;
-  z-index: 1000;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
@@ -36,7 +35,6 @@ header {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   position: sticky;
   top: 10;
-  z-index: 1000;
 }
 .navbar-logo {
   display: flex;
