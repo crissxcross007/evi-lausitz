@@ -20,23 +20,12 @@
       <span>🚒</span>
       <span><H2>EVI Lausitz</H2></span>
     </div>
-    <nav>
-      <ul class="main-menu">
-        <li class="active"><a href="index.html">🏠 Start</a></li>
-        <li><a href="was-ist.html">❓ Was ist EVI?</a></li>
-        <li><a href="faq.html">💬 FAQ</a></li>
-        <li class="dropdown">
-          <a href="#">📍 Landkreise ▾</a>
-          <ul class="dropdown-menu">
-            <li><a href="evi-spn.html">🟦 SPN</a></li>
-            <li><a href="osL.html">🟪 OSL</a></li>
-            <li><a href="dahme-spreewald.html">🟩 LDS</a></li>
-            <li><a href="elbe-elster.html">🟥 EE</a></li>
-            <li><a href="cottbus.html">🟨 CB</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
+<div id="menu-container"></div>
+<script>
+  fetch("menu.html")
+    .then(r => r.text())
+    .then(d => document.getElementById("menu-container").innerHTML = d);
+</script>
   </header>
 
   <!-- 📄 Hauptinhalt -->
