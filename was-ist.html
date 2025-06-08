@@ -4,63 +4,46 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Was ist EVI Lausitz?</title>
-  <meta name="description" content="Was ist EVI Lausitz? Alles über die WhatsApp-Kanäle mit anonymen Feuerwehr-Einsatzinformationen aus deiner Region.">
   <link rel="stylesheet" href="style.css" />
-  <span>🚒</span>
+  <meta name="description" content="Was ist EVI Lausitz? Erfahre alles über die anonymen WhatsApp-Kanäle für Einsatzvorinformationen aus der Region.">
 </head>
 <body>
-
-  <!-- Menü einbinden -->
+  <!-- Menü wird eingefügt -->
   <div id="menu-container"></div>
-  <script>
-    fetch("menu.html")
-      .then(response => response.text())
-      .then(html => document.getElementById("menu-container").innerHTML = html);
-  </script>
 
-  <main class="content">
-    <h1>ℹ️ Was ist EVI Lausitz?</h1>
+  <main class="page-content">
+    <h1>ℹ️ Was ist <strong>EVI Lausitz</strong>?</h1>
     <p>
-      <strong>EVI Lausitz</strong> ist dein direkter Draht zu aktuellen Feuerwehr-Einsatzinformationen per WhatsApp. 
-      Einfach, anonym und kostenlos – für alle Bürgerinnen und Bürger in der Lausitz.
+      EVI Lausitz steht für <strong>Einsatz-Vorinformationen</strong> aus der Region – schnell, anonym, kostenlos.
+      Über unsere WhatsApp-Kanäle erhalten Bürgerinnen und Bürger in Echtzeit Hinweise über laufende Feuerwehreinsätze in ihrer Umgebung.
     </p>
-
-    <h2>📲 Vorteile für dich</h2>
-    <ul>
-      <li>⚡ Sofortige Einsatzinfos per WhatsApp</li>
-      <li>🕵️‍♂️ Anonym – keine Nummern sichtbar</li>
-      <li>📵 Push optional – auch stumm möglich</li>
-      <li>📍 Lokalisiert nach Landkreisen</li>
-      <li>🔒 Datenschutzkonform: keine Adressen oder Namen</li>
-    </ul>
-
-    <h2>🌍 Wo aktiv?</h2>
     <p>
-      Derzeit kannst du dich für folgende Kanäle anmelden:
+      🔒 <strong>Datenschutz:</strong> Es werden keine Telefonnummern sichtbar, keine Straßennamen oder Hausnummern genannt – nur Ort, Zeit und Einsatzart.
     </p>
-    <ul>
-      <li>🟥 <a href="evi-spn.html">Spree-Neiße</a></li>
-      <li>🟦 <a href="osL.html">OSL</a></li>
-      <li>🟩 <a href="dahme-spreewald.html">LDS</a></li>
-      <li>🟥 <a href="elbe-elster.html">EE</a></li>
-      <li>🟨 <a href="cottbus.html">Cottbus</a></li>
-    </ul>
+    <p>
+      📲 <strong>Keine App nötig:</strong> Einfach dem WhatsApp-Kanal folgen. Auf Wunsch auf stumm schalten – und trotzdem nichts verpassen.
+    </p>
+    <p>
+      👨‍🚒 <strong>Zusammenarbeit:</strong> Das Projekt wird technisch begleitet von der Freiwilligen Feuerwehr Döbern und ist nicht kommerziell.
+    </p>
   </main>
 
   <footer>
-    <p><a href="impressum.html">📄 Impressum</a> | © EVI Lausitz</p>
+    <p><a href="impressum.html">📄 Impressum</a></p>
   </footer>
-<script>
-  fetch("menu.html")
-    .then(response => response.text())
-    .then(html => {
-      document.getElementById("menu-container").innerHTML = html;
 
-      // Script nach Einfügen manuell aktivieren
-      document.querySelector(".burger")?.addEventListener("click", () => {
-        document.getElementById("navLinks")?.classList.toggle("mobile-open");
+  <!-- Menü einfügen + JS aktivieren -->
+  <script>
+    fetch("menu.html")
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById("menu-container").innerHTML = html;
+
+        // Burger-Menü nachträglich aktivieren
+        document.querySelector(".burger")?.addEventListener("click", () => {
+          document.getElementById("navLinks")?.classList.toggle("mobile-open");
+        });
       });
-    });
-</script>
+  </script>
 </body>
 </html>
