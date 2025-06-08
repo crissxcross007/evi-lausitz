@@ -36,7 +36,6 @@ header {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   position: sticky;
   top: 10;
-  padding: 2rem 3rem;
   z-index: 1000;
 }
 .navbar-logo {
