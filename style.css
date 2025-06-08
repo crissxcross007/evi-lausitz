@@ -147,6 +147,9 @@ details {
 
 /* Responsive Navigation */
 @media (max-width: 768px) {
+  .dropdown:hover .dropdown-content {
+    display: none; /* Deaktivieren auf Touch-Geräten */
+  }
   .nav-links {
     display: none;
     flex-direction: column;
