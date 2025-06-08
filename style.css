@@ -46,6 +46,16 @@ a {
   display: flex;
   gap: 1.5rem;
 }
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.navbar-logo img {
+  height: 28px;
+  margin-right: 0.5rem;
+}
 
 /* Burger-Button Styling */
 .burger {
