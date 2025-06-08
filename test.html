@@ -65,6 +65,13 @@
         document.querySelector(".burger")?.addEventListener("click", () => {
           document.querySelector(".nav-links")?.classList.toggle("mobile-open");
         });
+        // Dropdown mobil aktivieren
+      document.querySelectorAll(".dropdown-toggle").forEach(toggle => {
+        toggle.addEventListener("click", (e) => {
+          e.preventDefault(); // Link-Verhalten unterbrechen
+          const dropdown = toggle.nextElementSibling;
+          dropdown.classList.toggle("open");
+        });
       });
   </script>
 </body>
