@@ -1,47 +1,24 @@
-  <nav class="navbar">
-    <div class="navbar-logo">
-      <img src="img/favicon.jpeg" alt="EVI Logo" />
-      <a href="index.html">EVI Lausitz</a>
-    </div>
-    
-<div class="burger">
-    <div></div>
-    <div></div>
-    <div></div>
+<nav class="navbar">
+  <div class="navbar-left">
+    <span>🚒</span>
+    <span class="site-title">EVI Lausitz</span>
   </div>
 
-  <ul class="nav-links">
-    <li><a href="test.html"class="active">🏠 Start</a></li>
+  <div class="burger" id="burger">&#9776;</div>
+
+  <ul class="nav-menu" id="nav-menu">
+    <li><a href="index.html">🏠 Start</a></li>
     <li><a href="was-ist.html">ℹ️ Was ist EVI?</a></li>
-    <li><a href="faq.html">❓ FAQ</a></li>
-<li class="dropdown">
-     <a href="#" class="dropdown-toggle">Landkreise</a>
-       <ul class="dropdown-content">
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle">🌐 Landkreise</a>
+      <ul class="dropdown-menu">
+        <li><a href="#">🟥 EE</a></li>
+        <li><a href="#">🟪 OSL</a></li>
+        <li><a href="#">🟩 LDS</a></li>
         <li><a href="evi-spn.html">🟦 SPN</a></li>
-        <li><a href="osl.html">🟪 OSL</a></li>
-        <li><a href="lds.html">🟩 LDS</a></li>
-        <li><a href="ee.html">🟥 EE</a></li>
-        <li><a href="cb.html">🟨 CB</a></li>
-    </ul>
+      </ul>
     </li>
-    <li><a href="feuerwehrkanaele.html">🔥 Feuerwehr-Kanäle</a></li>
-    </ul>
-  </nav>
-
-<script>
-  // Burger-Menü öffnen/schließen
-  document.getElementById("burgerBtn").addEventListener("click", () => {
-    document.getElementById("navLinks").classList.toggle("mobile-open");
-  });
-
-  // Dropdown per Klick auf Touch-Geräten
-  const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
-
-  dropdownToggles.forEach(toggle => {
-    toggle.addEventListener("click", (e) => {
-      e.preventDefault(); // verhindert Seitenwechsel
-      const dropdown = toggle.nextElementSibling;
-      dropdown.classList.toggle("open");
-    });
-  });
-</script>
+    <li><a href="faq.html">❓ FAQ</a></li>
+    <li><a href="feuerwehrkanaele.html">🔥 Feuerwehr Kanäle</a></li>
+  </ul>
+</nav>
