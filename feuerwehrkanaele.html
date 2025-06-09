@@ -8,10 +8,11 @@
   <meta name="description" content="Liste der WhatsApp-Kanäle der Freiwilligen Feuerwehren in der Lausitz – Einsätze, Ausbildung, Jugend & mehr." />
 </head>
 <body>
-  <div id="menu-container"></div>
+  <header id="site-header">
+    <!-- Menü wird hier geladen -->
+  </header>
 
-  
-  <!-- Hauptinhalt -->
+<!-- Hauptinhalt -->
   <main class="page-content">
     <h1>🚒 Feuerwehr-Kanäle</h1>
     <p>
@@ -34,24 +35,13 @@
       Kennst du weitere Kanäle? Dann schick sie uns gern zu: <a href="mailto:mail@feuerwehr-doebern.de">mail@feuerwehr-doebern.de</a>.
     </p>
   </main>
+  
 
+<!-- Footer -->
   <footer>
-    <p>© 2025 EVI Lausitz – <a href="impressum.html">Impressum</a></p>
+    <p>© 2025 IVI Lausitz &nbsp; <a href="impressum.html">Impressum</a></p>
   </footer>
-
-  <!-- Menü laden & Burger aktivieren -->
-  <script>
-    fetch("menu.html")
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById("menu-container").innerHTML = html;
-
-        // Burger-Menü aktivieren
-        document.querySelector(".burger")?.addEventListener("click", () => {
-          document.querySelector(".nav-links")?.classList.toggle("mobile-open");
-        });
-      });
-  </script>
-
+  
+  <script src="script.js"></script>
 </body>
 </html>
