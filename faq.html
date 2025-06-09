@@ -8,10 +8,12 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
 </head>
 <body>
-  <!-- Dynamisches Menü -->
-  <div id="menu-container"></div>
+  
+  <header id="site-header">
+    <!-- Menü wird hier geladen -->
+  </header>
 
- <!-- Hauptinhalt -->
+<!-- Hauptinhalt -->
   <main class="page-content">
     <h1>❓ Häufige Fragen zu EVI Lausitz</h1>
 
@@ -43,22 +45,9 @@
 
 <!-- Footer -->
   <footer>
-    <p>© 2025 EVI Lausitz – <a href="impressum.html">Impressum</a></p>
+    <p>© 2025 IVI Lausitz &nbsp; <a href="impressum.html">Impressum</a></p>
   </footer>
-
-  <!-- Menü laden & Burger aktivieren -->
-  <script>
-    fetch("menu.html")
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById("menu-container").innerHTML = html;
-
-        // Burger-Menü aktivieren
-        document.querySelector(".burger")?.addEventListener("click", () => {
-          document.querySelector(".nav-links")?.classList.toggle("mobile-open");
-        });
-      });
-  </script>
-
+  
+  <script src="script.js"></script>
 </body>
 </html>
