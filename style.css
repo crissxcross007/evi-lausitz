@@ -44,170 +44,135 @@ details {
   margin-bottom: 1.5rem;
 }
 
-/* === Navigation === */
+/* Navbar */
 .navbar {
-  background-color: #fff;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  background: #fff;
+  padding: 1em 2em;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
 }
 
-.navbar-logo {
+.navbar-left {
   display: flex;
   align-items: center;
-  font-size: 1.3rem;
+  gap: 0.75em;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+}
+
+.site-title {
+  font-size: 1.2em;
   font-weight: bold;
-  color: #b30000;
-}
-.navbar-logo img {
-  height: 28px;
-  margin-right: 0.5rem;
+  color: #d30000; /* Feuerwehrrot */
 }
 
-/* Navigation Links */
-.nav-links {
-  display: flex;
-  gap: 1.5rem;
-  position: relative;
-}
-
-.nav-links ul,
-.nav-links li {
+/* Menü rechts */
+.nav-menu {
   list-style: none;
+  display: flex;
+  gap: 1em;
   margin: 0;
   padding: 0;
 }
 
-.nav-links a {
-  padding: 0.5rem 1rem;
-  display: block;
-}
-
-.nav-links a.active {
-  color: #b30000;
-  font-weight: bold;
-}
-
-/* Dropdown */
-.dropdown {
+.nav-menu li {
   position: relative;
 }
 
-.dropdown-toggle {
-  cursor: pointer;
+.nav-menu a {
+  color: #333;
+  text-decoration: none;
+  padding: 0.5em;
+  display: block;
+  white-space: nowrap;
 }
 
-.dropdown-toggle::after {
-  content: " ▼";
-  font-size: 0.7rem;
-}
-
-.dropdown-content {
+/* Dropdown */
+.dropdown-menu {
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: white;
-  border: 1px solid #ddd;
-  min-width: 180px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  z-index: 999;
+  background: #f5f5f5;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-width: 160px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.dropdown-content a {
-  padding: 10px 15px;
-  white-space: nowrap;
+.dropdown-menu li a {
+  padding: 0.5em 1em;
+}
+
+.dropdown:hover .dropdown-menu {
   display: block;
 }
 
-.dropdown-content a:hover {
-  background-color: #f0f0f0;
-}
-
-/* Hover- und Tastaturzugänglichkeit */
-.dropdown:hover .dropdown-content,
-.dropdown:focus-within .dropdown-content {
-  display: block;
-}
-
-/* Mobile: Sichtbar durch JS-Klasse */
-.dropdown-content.open {
-  display: block;
-}
-
-/* Burger-Menü */
+/* Burger */
 .burger {
   display: none;
-  flex-direction: column;
-  gap: 5px;
+  font-size: 2em;
   cursor: pointer;
-  margin-right: 1rem;
 }
 
-.burger div {
-  width: 25px;
-  height: 3px;
-  background: #333;
-}
-
-/* Responsive Navigation */
+/* Responsive */
 @media (max-width: 768px) {
-  .nav-links {
+  .burger {
+    display: block;
+  }
+
+  .nav-menu {
     display: none;
     flex-direction: column;
-    background-color: white;
-    position: absolute;
-    top: 100%;
-    right: 1rem;
-    padding: 1rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    z-index: 1001;
+    background: #fff;
+    width: 100%;
+    margin-top: 1em;
   }
 
-  .nav-links.mobile-open {
+  .nav-menu.show {
     display: flex;
   }
 
-  .burger {
-    display: flex;
-  }
-
-  /* Hover deaktivieren auf Touch */
-  .dropdown:hover .dropdown-content {
-    display: none;
-  }
-
-  .dropdown-content {
-    position: relative;
-    border: none;
+  .dropdown-menu {
+    position: static;
     box-shadow: none;
-    top: auto;
-    left: auto;
-    background: white;
-    padding: 0.5rem 0;
+    background: #eee;
   }
 
-  .dropdown-content a {
-    padding: 10px 15px;
-    border-bottom: 1px solid #eee;
+  .dropdown .dropdown-menu {
+    display: none;
+    flex-direction: column;
   }
 
-  .dropdown-content a:last-child {
-    border-bottom: none;
+  .dropdown.open .dropdown-menu {
+    display: flex;
   }
 }
 
-/* === Footer === */
+/* Footer */
 footer {
   text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-  color: #777;
+  padding: 2em 1em;
+  background: #f2f2f2;
+  color: #333;
+  font-size: 0.9em;
+  border-top: 1px solid #ccc;
+}
+
+footer a {
+  color: #d30000;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
 
 /* === WhatsApp-Stil Box für Kanäle === */
@@ -236,4 +201,23 @@ footer {
 .kanalbox::before {
   content: "💬 ";
   font-size: 1.2rem;
+}
+/* === FAQ Seite  === */
+details {
+  margin-bottom: 1em;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 0.5em;
+  background: #f9f9f9; /* optional: Grundhintergrund */
+}
+
+details[open] {
+  background: #f0f0f0; /* Heller Hintergrund bei geöffneter Antwort */
+}
+
+details p {
+  margin: 0.5em 0 0;
+  padding: 0.5em;
+  background: #f7f7f7; /* leichtes Grau für Textbereich */
+  border-radius: 4px;
 }
