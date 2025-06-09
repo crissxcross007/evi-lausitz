@@ -8,10 +8,11 @@
   <meta name="description" content="Was ist EVI Lausitz? Erfahre alles über die anonymen WhatsApp-Kanäle für Einsatzvorinformationen aus der Region.">
 </head>
 <body>
-  <!-- Menü wird eingefügt -->
-  <div id="menu-container"></div>
+  <header id="site-header">
+    <!-- Menü wird hier geladen -->
+  </header>
 
- <!-- Hauptinhalt -->
+<!-- Hauptinhalt -->
   <main class="page-content">
     <h1>ℹ️ Was ist <strong>EVI Lausitz</strong>?</h1>
     <p>
@@ -29,24 +30,12 @@
     </p>
   </main>
   
+
 <!-- Footer -->
   <footer>
-    <p>© 2025 EVI Lausitz – <a href="impressum.html">Impressum</a></p>
+    <p>© 2025 IVI Lausitz &nbsp; <a href="impressum.html">Impressum</a></p>
   </footer>
-
-  <!-- Menü laden & Burger aktivieren -->
-  <script>
-    fetch("menu.html")
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById("menu-container").innerHTML = html;
-
-        // Burger-Menü aktivieren
-        document.querySelector(".burger")?.addEventListener("click", () => {
-          document.querySelector(".nav-links")?.classList.toggle("mobile-open");
-        });
-      });
-  </script>
-
+  
+  <script src="script.js"></script>
 </body>
 </html>
