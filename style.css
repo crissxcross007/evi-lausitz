@@ -256,3 +256,57 @@ details p {
     font-size: 1.1rem;
   }
 }
+/* === Lokale Einsatz-Feed-Box === */
+.local-feed {
+  background-color: #fff8e1;        /* Helles Gelb für Warnung/Info */
+  border-left: 4px solid #ffc107;   /* Deutlicher Akzentstreifen */
+  padding: 1.5rem;                  /* Innenabstand */
+  margin: 2rem 0;                   /* Außenabstand */
+  border-radius: 6px;               /* Leicht abgerundete Ecken */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.local-feed h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  color: #795548;                   /* dunkles Braun als Kontrast */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.local-feed ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1rem;
+}
+
+.local-feed ul li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.local-feed ul li::before {
+  content: "📌";                     /* Pin-Icon vor jedem Eintrag */
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.local-feed p {
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+@media (max-width: 600px) {
+  .local-feed {
+    padding: 1rem;
+  }
+  .local-feed h2 {
+    font-size: 1.1rem;
+  }
+}
