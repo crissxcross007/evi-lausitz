@@ -17,6 +17,14 @@ a {
   text-decoration: none;
 }
 
+/* === Zentrierte Bilder und responsive === */
+.responsive-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto; /* zentriert auf Desktop, mit Abstand */
+}
+
 /* === Zentrierter Seiteninhalt === */
 .page-content {
   max-width: 800px;
