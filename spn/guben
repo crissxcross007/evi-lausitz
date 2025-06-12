@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Einsatzinfo Guben – Feuerwehrmeldungen über WhatsApp</title>
+  <meta name="description" content="Feuerwehreinsätze Guben – alle aktuellen Alarmmeldungen erhältst du anonym per WhatsApp über den EVI-Spree-Neiße-Kanal. Jetzt kostenlos abonnieren." />
+  <link rel="icon" type="image/png" href="../img/favicon.png" />
+  <link rel="stylesheet" href="../style.css" />
+
+  <!-- Rich Snippets: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Gibt es einen EVI-Kanal direkt für Guben?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Derzeit gibt es keinen eigenen WhatsApp-Kanal nur für Guben. Einsätze aus Guben werden im übergeordneten EVI-Spree-Neiße-Kanal veröffentlicht."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie erhalte ich Einsatzinfos für Guben?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Abonniere den offiziellen EVI-Spree-Neiße-Kanal auf WhatsApp – dort erscheinen automatisch alle Alarmmeldungen aus Guben."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <header id="site-header">
+    <!-- Menü wird dynamisch geladen -->
+  </header>
+
+  <main class="page-content">
+    <!-- Breadcrumbs -->
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <a href="../index.html">Home</a> ›
+      <a href="../spn.html">EVI Spree-Neiße</a> ›
+      <span>Guben</span>
+    </nav>
+
+    <h1>🚒 Feuerwehr Einsätze in Guben</h1>
+
+    <p>
+      Willkommen auf der Einsatzinfo-Seite für <strong>Guben</strong>! Mit <strong>EVI Lausitz</strong> erhältst du per WhatsApp anonym und kostenlos alle aktuellen
+      Feuerwehr-Alarmmeldungen aus deiner Stadt – direkt und in Echtzeit.
+    </p>
+
+    <h2>📲 Gibt es einen EVI-Kanal für Guben?</h2>
+    <p>
+      Noch nicht: Einen eigenen Guben-Kanal gibt es aktuell nicht. Aber: 
+      <a href="../spn.html"><strong>EVI-Spree-Neiße</strong></a> bündelt alle Einsätze im gesamten Landkreis – inklusive Guben.
+    </p>
+
+    <div class="kanalbox">
+      <h3>🔔 Jetzt EVI-Spree-Neiße abonnieren</h3>
+      <p>Alle Einsatzmeldungen aus Guben und Umgebung erhältst du hier:</p>
+      <p>
+        👉 <a href="https://whatsapp.com/channel/0029Vb9zdpT11ulGlwf18l3K"
+              target="_blank" rel="noopener">EVI-Spree-Neiße Kanal auf WhatsApp</a>
+      </p>
+      <ul>
+        <li>✅ Direkt in WhatsApp – keine weitere App</li>
+        <li>✅ Sofort abonnierbar – ohne Registrierung</li>
+        <li>✅ Vollständig anonym – niemand sieht deine Nummer</li>
+        <li>✅ Datenschutzfreundlich – nur Ortsnamen</li>
+        <li>✅ Echtzeit-Updates – keine Verzögerung</li>
+        <li>✅ Stumm schaltbar – bleib informiert ohne Push</li>
+      </ul>
+    </div>
+
+    <h2>🏙️ Über Guben</h2>
+    <p>
+      Guben (ca. 16.200 Einwohner) ist eine historische Grenzstadt an der Neiße, bekannt für den Stadttheaterbetrieb und die Tuchmacherei-Tradition.
+      Sehenswert sind das Industriemuseum und der malerische Altstadtkern.
+    </p>
+
+    <h2>🔥 Beispiel-Einsätze in Guben</h2>
+    <ul class="einsatz-teaser">
+      <li>20. Mai 2025 – Müllcontainerbrand in der Bergstraße, zügig gelöscht</li>
+      <li>18. Mai 2025 – Verkehrsunfall mit Personenschaden auf der B113</li>
+      <li>15. Mai 2025 – Technische Hilfeleistung: Baum auf Fahrbahn, Südstadt</li>
+    </ul>
+
+
+    <h2>ℹ️ Weitere Städte mit EVI-Kanal</h2>
+    <ul>
+      <li>🟥 <strong>Amt Döbern-Land</strong> – <a href="https://whatsapp.com/channel/0029Vabfzzs7T8bgHFArGN2W" target="_blank">Jetzt abonnieren</a></li>
+      <li>🟩 <strong>Gemeinde Neuhausen Spree</strong> – <a href="https://whatsapp.com/channel/0029VaeKOJRBadmjgBKhFL1G" target="_blank">Jetzt abonnieren</a></li>
+    </ul>
+
+    <h2>ℹ️ Weitere Städte im Landkreis SPN</h2>
+    <ul>
+      <li><a href="forst.html">Forst (Lausitz)</a></li>
+      <li><a href="spremberg.html">Spremberg</a></li>
+    </ul>
+  </main>
+
+  <script src="../script.js"></script>
+
+  <footer>
+    <p>© 2025 EVI Lausitz &nbsp;|&nbsp; <a href="../impressum.html">Impressum</a></p>
+  </footer>
+</body>
+</html>
