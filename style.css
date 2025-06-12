@@ -256,57 +256,58 @@ details p {
     font-size: 1.1rem;
   }
 }
-/* === Lokale Einsatz-Feed-Box === */
-.local-feed {
-  background-color: #fff8e1;        /* Helles Gelb für Warnung/Info */
-  border-left: 4px solid #ffc107;   /* Deutlicher Akzentstreifen */
+/* === Einsatz-Teaser === */
+.einsatz-teaser {
+  background-color: #e3f2fd;        /* Helles Blau für Einsatz-Kontext */
+  border-left: 4px solid #2196f3;   /* Akzentstreifen in Primärfarbe */
   padding: 1.5rem;                  /* Innenabstand */
   margin: 2rem 0;                   /* Außenabstand */
   border-radius: 6px;               /* Leicht abgerundete Ecken */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
 }
 
-.local-feed h2 {
+.einsatz-teaser h2 {
   margin-top: 0;
   margin-bottom: 1rem;
   font-size: 1.3rem;
-  color: #795548;                   /* dunkles Braun als Kontrast */
+  color: #1565c0;                   /* Dunkleres Blau für Überschrift */
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.local-feed ul {
+.einsatz-teaser ul {
   list-style: none;
   padding-left: 0;
   margin-bottom: 1rem;
 }
 
-.local-feed ul li {
+.einsatz-teaser ul li {
   position: relative;
-  padding-left: 1.5rem;
+  padding-left: 1.8rem;
   margin-bottom: 0.75rem;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
-.local-feed ul li::before {
-  content: "📌";                     /* Pin-Icon vor jedem Eintrag */
+.einsatz-teaser ul li::before {
+  content: "🚒";                     /* Feuerwehr-Icon als Bullet */
   position: absolute;
   left: 0;
   top: 0;
 }
 
-.local-feed p {
-  margin-bottom: 0.75rem;
-  font-size: 0.95rem;
+.einsatz-teaser p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
   color: #333;
 }
 
 @media (max-width: 600px) {
-  .local-feed {
+  .einsatz-teaser {
     padding: 1rem;
   }
-  .local-feed h2 {
+  .einsatz-teaser h2 {
     font-size: 1.1rem;
   }
 }
+
