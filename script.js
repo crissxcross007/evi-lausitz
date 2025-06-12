@@ -1,6 +1,6 @@
 // Menü via fetch laden
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("menu.html")
+  fetch("/menu.html")
     .then(res => res.text())
     .then(html => {
       document.getElementById("site-header").innerHTML = html;
