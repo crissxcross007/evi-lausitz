@@ -1,0 +1,19 @@
+{
+  "farben": {
+    "Landkreis": "rot",
+    "Amt/Gemeinde/Stadt": "orange",
+    "Ortswehr mit eviAlarmierung true": "blau",
+    "Ortswehr mit eviAlarmierung false": "grau"
+  },
+  "pflichtfelder": [
+    "name",
+    "landkreis",
+    "kommune",
+    "ort",
+    "typ",
+    "eviAlarmierung",
+    "lat",
+    "lng",
+    "link"
+  ]
+}
