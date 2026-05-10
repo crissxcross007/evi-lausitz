@@ -159,7 +159,7 @@
     "kommune": "Lieberose",
     "ort": "Lieberose",
     "typ": "Ortswehr",
-    "eviAlarmierung": false,
+    "eviAlarmierung": true,
     "lat": 51.984,
     "lng": 14.299,
     "link": "https://www.whatsapp.com/channel/0029VajwwtvJZg4D5naDZ41U"
