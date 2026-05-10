@@ -1,4 +1,4 @@
 User-agent: *
-Disallow:
+Disallow: /intern/
 
 Sitemap: https://evilausitz.de/sitemap.xml
