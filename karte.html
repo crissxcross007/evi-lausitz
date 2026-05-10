@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>🗺️ EVI Kanalfinder – Testversion</title>
+  <title>🗺️ EVI Kanalfinder – Feuerwehr-Kanäle auf der Karte</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/jpeg" href="img/favicon.jpeg" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -54,6 +54,59 @@
     .dot-ortswehr-evi { background:#1d70b8; }
     .dot-ortswehr-ohne-evi { background:#888; }
     .county-label { color:#111;font-weight:900;text-shadow:0 1px 4px #fff,0 -1px 4px #fff,1px 0 4px #fff,-1px 0 4px #fff;font-size:14px;pointer-events:none;text-align:center; }
+
+    /* Desktop: Karte breiter ausnutzen, mobil bleibt unverändert */
+    @media (min-width:1200px) {
+      .page-content {
+        max-width:1600px !important;
+        width:96%;
+        margin-left:auto;
+        margin-right:auto;
+      }
+
+      .finder-layout {
+        grid-template-columns:380px 1fr;
+        gap:1.2rem;
+      }
+
+      #eviMap {
+        height:80vh;
+        min-height:700px;
+      }
+    }
+
+    @media (min-width:1400px) {
+      .page-content {
+        max-width:1850px !important;
+        width:97%;
+      }
+
+      .finder-layout {
+        grid-template-columns:430px 1fr;
+      }
+
+      #eviMap {
+        height:82vh;
+        min-height:760px;
+      }
+    }
+
+    @media (min-width:1800px) {
+      .page-content {
+        max-width:2300px !important;
+        width:98%;
+      }
+
+      .finder-layout {
+        grid-template-columns:480px 1fr;
+      }
+
+      #eviMap {
+        height:84vh;
+        min-height:820px;
+      }
+    }
+
     @media (max-width:920px) {
       .finder-layout { grid-template-columns:1fr; }
       .finder-panel { order:2; }
