@@ -4,6 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>🛠️ EVI Kanalfinder Admin – Kanalorte bearbeiten</title>
+  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet" />
+  <meta name="googlebot" content="noindex,nofollow" />
+
+  <link rel="stylesheet" href="../style.css" />
+
+  <script>
+  const pw = prompt("Interner Bereich – Passwort?");
+
+  if (pw !== "EVI2026") {
+    document.body.innerHTML = "Kein Zugriff";
+    throw new Error("Access denied");
+  }
+  </script>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/jpeg" href="img/favicon.jpeg" />
   <meta name="description" content="Admin-Hilfe zum Bearbeiten der EVI Kanalfinder JSON-Datei." />
