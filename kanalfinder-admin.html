@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🛠️ EVI Kanalfinder Admin – Kanalorte bearbeiten</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/jpeg" href="img/favicon.jpeg" />
+  <meta name="description" content="Admin-Hilfe zum Bearbeiten der EVI Kanalfinder JSON-Datei." />
+
+  <style>
+    :root {
+      --evi-red: #d71920;
+      --evi-orange: #f2994a;
+      --evi-blue: #1d70b8;
+      --evi-gray: #888;
+      --soft: #f5f5f5;
+      --border: #ddd;
+    }
+
+    .admin-wrap {
+      max-width: 1600px !important;
+      width: 96%;
+      margin: 0 auto;
+    }
+
+    .admin-hint {
+      background: #fff3cd;
+      border-left: 5px solid #ffc107;
+      border-radius: 12px;
+      padding: .9rem 1rem;
+      margin: 1rem 0;
+    }
+
+    .admin-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+      margin: 1rem 0;
+      align-items: center;
+    }
+
+    .admin-actions button,
+    .admin-actions label.file-label {
+      border: 0;
+      border-radius: 999px;
+      padding: .7rem 1rem;
+      cursor: pointer;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      background: #f1f1f1;
+      color: #222;
+    }
+
+    .admin-actions .primary {
+      background: var(--evi-red);
+      color: #fff;
+    }
+
+    .admin-actions .success {
+      background: #25D366;
+      color: #fff;
+    }
+
+    .admin-actions .warning {
+      background: var(--evi-orange);
+      color: #fff;
+    }
+
+    .admin-actions input[type="file"] {
+      display: none;
+    }
+
+    .admin-grid {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .admin-panel {
+      background: #fff;
+      border-radius: 14px;
+      padding: 1rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,.10);
+    }
+
+    .form-grid {
+      display: grid;
+      gap: .65rem;
+    }
+
+    .form-grid label {
+      font-weight: 700;
+      font-size: .92rem;
+    }
+
+    .form-grid input,
+    .form-grid select,
+    .form-grid textarea {
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: .65rem .75rem;
+      font-size: 1rem;
+    }
+
+    .row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .6rem;
+    }
+
+    .search-row {
+      display: flex;
+      gap: .5rem;
+      margin: 1rem 0;
+    }
+
+    .search-row input {
+      flex: 1;
+      min-width: 0;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: .75rem .85rem;
+      font-size: 1rem;
+    }
+
+    .channel-list {
+      display: grid;
+      gap: .55rem;
+      max-height: 75vh;
+      overflow: auto;
+      padding-right: .2rem;
+    }
+
+    .channel-item {
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: .75rem;
+      background: #fafafa;
+      cursor: pointer;
+      transition: .12s ease;
+    }
+
+    .channel-item:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 3px 12px rgba(0,0,0,.08);
+    }
+
+    .channel-item.active {
+      outline: 3px solid rgba(215,25,32,.22);
+      background: #fff;
+    }
+
+    .channel-item.main { border-left: 6px solid var(--evi-red); }
+    .channel-item.kommune { border-left: 6px solid var(--evi-orange); }
+    .channel-item.ortswehr-evi { border-left: 6px solid var(--evi-blue); }
+    .channel-item.ortswehr-ohne-evi { border-left: 6px solid var(--evi-gray); opacity: .85; }
+
+    .channel-item strong {
+      display: block;
+      margin-bottom: .2rem;
+    }
+
+    .channel-item small {
+      display: block;
+      color: #666;
+      line-height: 1.35;
+    }
+
+    .badge {
+      display: inline-block;
+      border-radius: 999px;
+      background: #eee;
+      padding: .2rem .45rem;
+      font-size: .75rem;
+      font-weight: 700;
+      margin-right: .25rem;
+      margin-bottom: .35rem;
+    }
+
+    .badge-evi {
+      background: #dbeafe;
+      color: #1d4ed8;
+    }
+
+    .badge-no {
+      background: #e5e7eb;
+      color: #4b5563;
+    }
+
+    .statusbar {
+      margin: .8rem 0;
+      padding: .75rem .9rem;
+      border-radius: 12px;
+      background: #f1f1f1;
+      font-size: .95rem;
+    }
+
+    .statusbar.error {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .statusbar.ok {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .json-preview {
+      width: 100%;
+      min-height: 220px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: .86rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: .75rem;
+      box-sizing: border-box;
+    }
+
+    .mini-help {
+      font-size: .9rem;
+      color: #666;
+      line-height: 1.45;
+    }
+
+    .geo-result {
+      display: none;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: .75rem;
+      background: #f9fafb;
+      margin-top: .4rem;
+      font-size: .9rem;
+      line-height: 1.4;
+    }
+
+    .geo-result.visible {
+      display: block;
+    }
+
+    .geo-result strong {
+      display: block;
+      margin-bottom: .25rem;
+    }
+
+    @media (max-width: 980px) {
+      .admin-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .channel-list {
+        max-height: none;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .row-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .search-row {
+        flex-direction: column;
+      }
+
+      .admin-actions button,
+      .admin-actions label.file-label {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="site-header">
+    <!-- Menü wird hier geladen -->
+  </header>
+
+  <main class="page-content admin-wrap">
+    <h1>🛠️ EVI Kanalfinder Admin</h1>
+
+    <p>
+      Mit dieser Hilfsseite kannst du die Datei <strong>data/evi-kanalorte.json</strong> bearbeiten,
+      neue Kanäle eintragen und die fertige JSON-Datei wieder herunterladen.
+    </p>
+
+    <div class="admin-hint">
+      Wichtig: Diese statische Seite schreibt nicht automatisch zurück nach GitHub.
+      Du lädst am Ende die neue <strong>evi-kanalorte.json</strong> herunter und ersetzt sie im Ordner <strong>/data/</strong>.
+    </div>
+
+    <div class="admin-actions">
+      <button class="primary" type="button" onclick="loadFromServer()">JSON von /data laden</button>
+
+      <label class="file-label">
+        Lokale JSON öffnen
+        <input id="fileInput" type="file" accept=".json,application/json" />
+      </label>
+
+      <button class="success" type="button" onclick="addEntry()">+ Neuer Kanal</button>
+      <button class="warning" type="button" onclick="duplicateEntry()">Duplizieren</button>
+      <button type="button" onclick="deleteEntry()">Löschen</button>
+      <button class="success" type="button" onclick="downloadJson()">JSON herunterladen</button>
+      <button type="button" onclick="copyJson()">JSON kopieren</button>
+    </div>
+
+    <div id="status" class="statusbar">Bereit. Lade die JSON-Datei oder starte mit einem neuen Eintrag.</div>
+
+    <div class="admin-grid">
+      <section class="admin-panel">
+        <h2>Eintrag bearbeiten</h2>
+
+        <div class="form-grid">
+          <label for="name">Name / Anzeigename</label>
+          <input id="name" type="text" placeholder="z. B. Feuerwehr Tauer" />
+
+          <div class="row-2">
+            <div>
+              <label for="landkreis">Landkreis / Region</label>
+              <select id="landkreis">
+                <option>Spree-Neiße</option>
+                <option>Cottbus</option>
+                <option>Oberspreewald-Lausitz</option>
+                <option>Elbe-Elster</option>
+                <option>Dahme-Spreewald</option>
+                <option>Barnim</option>
+                <option>Oberhavel</option>
+                <option>Ostprignitz-Ruppin</option>
+                <option>Potsdam-Mittelmark</option>
+                <option>Prignitz</option>
+                <option>Teltow-Fläming</option>
+                <option>Uckermark</option>
+                <option>Bautzen</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="typ">Typ</label>
+              <select id="typ">
+                <option>Landkreis</option>
+                <option>Amt/Gemeinde/Stadt</option>
+                <option>Ortswehr</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row-2">
+            <div>
+              <label for="kommune">Amt / Gemeinde / Stadt</label>
+              <input id="kommune" type="text" placeholder="z. B. Forst (Lausitz)" />
+            </div>
+
+            <div>
+              <label for="ort">Ort / Ortswehr</label>
+              <input id="ort" type="text" placeholder="z. B. Tauer" />
+            </div>
+          </div>
+
+          <div class="row-2">
+            <div>
+              <label for="lat">Latitude</label>
+              <input id="lat" type="number" step="0.000001" placeholder="51.735" />
+            </div>
+
+            <div>
+              <label for="lng">Longitude</label>
+              <input id="lng" type="number" step="0.000001" placeholder="14.640" />
+            </div>
+          </div>
+
+          <label for="link">WhatsApp-Link</label>
+          <input id="link" type="url" placeholder="https://www.whatsapp.com/channel/..." />
+
+          <label>
+            <input id="eviAlarmierung" type="checkbox" />
+            nutzt EVI Echtzeitalarmierung
+          </label>
+
+          <div class="admin-actions">
+            <button class="primary" type="button" onclick="saveEntry()">Eintrag speichern</button>
+            <button class="warning" type="button" onclick="findCoordinates()">Koordinaten suchen</button>
+            <button type="button" onclick="openMaps()">Koordinaten in Google Maps prüfen</button>
+            <button type="button" onclick="openWhatsapp()">WhatsApp-Link testen</button>
+          </div>
+
+          <p class="mini-help">
+            Pinlogik: Landkreis = rot · Amt/Gemeinde/Stadt = orange · Ortswehr mit EVI = blau · Ortswehr ohne EVI = grau.
+            Koordinatensuche nutzt OpenStreetMap/Nominatim. Bitte nur einzelne Orte per Klick suchen, keine Massenabfragen.
+          </p>
+
+          <div id="geoResult" class="geo-result"></div>
+        </div>
+      </section>
+
+      <section class="admin-panel">
+        <h2>Kanäle</h2>
+
+        <div class="search-row">
+          <input id="searchInput" type="search" placeholder="Suchen nach Ort, Name, Landkreis ..." />
+          <button type="button" onclick="renderList()">Suchen</button>
+        </div>
+
+        <div id="countInfo" class="mini-help"></div>
+        <div id="list" class="channel-list"></div>
+
+        <h2>JSON-Vorschau</h2>
+        <textarea id="jsonPreview" class="json-preview" readonly></textarea>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 EVI Lausitz &nbsp; <a href="impressum.html">Impressum</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <script>
+    let channels = [];
+    let selectedIndex = -1;
+
+    const fields = [
+      "name",
+      "landkreis",
+      "kommune",
+      "ort",
+      "typ",
+      "lat",
+      "lng",
+      "link"
+    ];
+
+    function setStatus(message, type = "") {
+      const el = document.getElementById("status");
+      el.textContent = message;
+      el.className = "statusbar" + (type ? " " + type : "");
+    }
+
+    function normalizeEntry(entry = {}) {
+      return {
+        name: entry.name || "",
+        landkreis: entry.landkreis || "Spree-Neiße",
+        kommune: entry.kommune || "",
+        ort: entry.ort || "",
+        typ: entry.typ || "Ortswehr",
+        eviAlarmierung: entry.eviAlarmierung === true,
+        lat: typeof entry.lat === "number" ? entry.lat : Number(entry.lat || 0),
+        lng: typeof entry.lng === "number" ? entry.lng : Number(entry.lng || 0),
+        link: entry.link || ""
+      };
+    }
+
+    function channelGroup(item) {
+      const typ = String(item.typ || "").toLowerCase();
+
+      if (typ === "landkreis" || typ.includes("hauptkanal")) return "main";
+      if (typ.includes("amt") || typ.includes("gemeinde") || typ.includes("stadt")) return "kommune";
+      if (typ.includes("ortswehr") && item.eviAlarmierung === true) return "ortswehr-evi";
+      if (typ.includes("ortswehr")) return "ortswehr-ohne-evi";
+
+      return item.eviAlarmierung ? "ortswehr-evi" : "ortswehr-ohne-evi";
+    }
+
+    function groupLabel(item) {
+      const group = channelGroup(item);
+      if (group === "main") return "Landkreis-Hauptkanal";
+      if (group === "kommune") return "Amt/Gemeinde/Stadt";
+      if (group === "ortswehr-evi") return "Ortswehr · EVI aktiv";
+      return "Ortswehr · ohne EVI";
+    }
+
+    function loadForm(index) {
+      selectedIndex = index;
+      const item = channels[index];
+
+      fields.forEach(field => {
+        document.getElementById(field).value = item[field] ?? "";
+      });
+
+      document.getElementById("eviAlarmierung").checked = item.eviAlarmierung === true;
+      renderList();
+      updatePreview();
+      setStatus(`Eintrag geladen: ${item.name || "ohne Name"}`, "ok");
+    }
+
+    function readForm() {
+      const entry = {};
+      fields.forEach(field => {
+        entry[field] = document.getElementById(field).value.trim();
+      });
+
+      entry.lat = Number(entry.lat);
+      entry.lng = Number(entry.lng);
+      entry.eviAlarmierung = document.getElementById("eviAlarmierung").checked;
+
+      return normalizeEntry(entry);
+    }
+
+    function validateEntry(entry) {
+      const errors = [];
+
+      if (!entry.name) errors.push("Name fehlt");
+      if (!entry.landkreis) errors.push("Landkreis fehlt");
+      if (!entry.typ) errors.push("Typ fehlt");
+      if (!entry.ort) errors.push("Ort fehlt");
+      if (!entry.lat || Number.isNaN(entry.lat)) errors.push("Latitude fehlt/ungültig");
+      if (!entry.lng || Number.isNaN(entry.lng)) errors.push("Longitude fehlt/ungültig");
+      if (entry.link && !entry.link.startsWith("http")) errors.push("Link sollte mit http/https beginnen");
+
+      return errors;
+    }
+
+    function saveEntry() {
+      const entry = readForm();
+      const errors = validateEntry(entry);
+
+      if (errors.length) {
+        setStatus("Bitte prüfen: " + errors.join(", "), "error");
+        return;
+      }
+
+      if (selectedIndex < 0) {
+        channels.push(entry);
+        selectedIndex = channels.length - 1;
+      } else {
+        channels[selectedIndex] = entry;
+      }
+
+      sortChannels();
+      const newIndex = channels.findIndex(item => item.name === entry.name && item.link === entry.link);
+      selectedIndex = newIndex >= 0 ? newIndex : selectedIndex;
+
+      renderList();
+      updatePreview();
+      setStatus("Eintrag gespeichert.", "ok");
+    }
+
+    function sortChannels() {
+      channels.sort((a, b) => {
+        return (a.landkreis || "").localeCompare(b.landkreis || "", "de")
+          || (a.kommune || "").localeCompare(b.kommune || "", "de")
+          || (a.ort || "").localeCompare(b.ort || "", "de")
+          || (a.name || "").localeCompare(b.name || "", "de");
+      });
+    }
+
+    function addEntry() {
+      selectedIndex = -1;
+
+      document.getElementById("name").value = "";
+      document.getElementById("landkreis").value = "Spree-Neiße";
+      document.getElementById("kommune").value = "";
+      document.getElementById("ort").value = "";
+      document.getElementById("typ").value = "Ortswehr";
+      document.getElementById("lat").value = "";
+      document.getElementById("lng").value = "";
+      document.getElementById("link").value = "";
+      document.getElementById("eviAlarmierung").checked = false;
+
+      setStatus("Neuer Eintrag vorbereitet.");
+    }
+
+    function duplicateEntry() {
+      if (selectedIndex < 0 || !channels[selectedIndex]) {
+        setStatus("Bitte zuerst einen Eintrag auswählen.", "error");
+        return;
+      }
+
+      const copy = {
+        ...channels[selectedIndex],
+        name: channels[selectedIndex].name + " Kopie"
+      };
+
+      channels.push(copy);
+      selectedIndex = channels.length - 1;
+      renderList();
+      updatePreview();
+      loadForm(selectedIndex);
+      setStatus("Eintrag dupliziert.", "ok");
+    }
+
+    function deleteEntry() {
+      if (selectedIndex < 0 || !channels[selectedIndex]) {
+        setStatus("Bitte zuerst einen Eintrag auswählen.", "error");
+        return;
+      }
+
+      const name = channels[selectedIndex].name;
+      if (!confirm(`Eintrag wirklich löschen?\\n${name}`)) return;
+
+      channels.splice(selectedIndex, 1);
+      selectedIndex = -1;
+      addEntry();
+      renderList();
+      updatePreview();
+      setStatus("Eintrag gelöscht.", "ok");
+    }
+
+    function renderList() {
+      const list = document.getElementById("list");
+      const term = document.getElementById("searchInput").value.toLowerCase().trim();
+
+      list.innerHTML = "";
+
+      const filtered = channels
+        .map((item, index) => ({ item, index }))
+        .filter(({ item }) => {
+          const text = `${item.name} ${item.landkreis} ${item.kommune} ${item.ort} ${item.typ}`.toLowerCase();
+          return !term || text.includes(term);
+        });
+
+      document.getElementById("countInfo").textContent =
+        `${filtered.length} von ${channels.length} Einträgen angezeigt`;
+
+      filtered.forEach(({ item, index }) => {
+        const card = document.createElement("div");
+        card.className = "channel-item " + channelGroup(item) + (index === selectedIndex ? " active" : "");
+
+        card.innerHTML = `
+          <span class="badge">${item.typ || "ohne Typ"}</span>
+          <span class="badge ${item.eviAlarmierung ? "badge-evi" : "badge-no"}">${item.eviAlarmierung ? "EVI aktiv" : "ohne EVI"}</span>
+          <strong>${item.name || "ohne Name"}</strong>
+          <small>${item.ort || "ohne Ort"} · ${item.kommune || "ohne Kommune"} · ${item.landkreis || "ohne Landkreis"}</small>
+          <small>${groupLabel(item)}</small>
+        `;
+
+        card.addEventListener("click", () => loadForm(index));
+        list.appendChild(card);
+      });
+
+      updatePreview();
+    }
+
+    function updatePreview() {
+      document.getElementById("jsonPreview").value = JSON.stringify(channels, null, 2);
+    }
+
+    function downloadJson() {
+      const blob = new Blob([JSON.stringify(channels, null, 2)], { type: "application/json;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+
+      a.href = url;
+      a.download = "evi-kanalorte.json";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+
+      URL.revokeObjectURL(url);
+      setStatus("JSON wurde heruntergeladen.", "ok");
+    }
+
+    function copyJson() {
+      const text = JSON.stringify(channels, null, 2);
+
+      navigator.clipboard.writeText(text)
+        .then(() => setStatus("JSON wurde in die Zwischenablage kopiert.", "ok"))
+        .catch(() => {
+          document.getElementById("jsonPreview").select();
+          document.execCommand("copy");
+          setStatus("JSON wurde markiert/kopiert. Falls nicht: manuell aus dem Vorschaufeld kopieren.", "ok");
+        });
+    }
+
+    function loadFromServer() {
+      fetch("data/evi-kanalorte.json")
+        .then(response => {
+          if (!response.ok) throw new Error("Datei nicht gefunden");
+          return response.json();
+        })
+        .then(data => {
+          channels = data.map(normalizeEntry);
+          sortChannels();
+          selectedIndex = -1;
+          renderList();
+          updatePreview();
+          setStatus("data/evi-kanalorte.json geladen.", "ok");
+        })
+        .catch(error => {
+          setStatus("JSON konnte nicht geladen werden. Auf lokalem PC besser über „Lokale JSON öffnen“ laden oder per lokalem Webserver testen.", "error");
+          console.error(error);
+        });
+    }
+
+    function buildGeocodeQuery() {
+      const ort = document.getElementById("ort").value.trim();
+      const kommune = document.getElementById("kommune").value.trim();
+      const landkreis = document.getElementById("landkreis").value.trim();
+
+      const parts = [];
+
+      if (ort) parts.push(ort);
+      if (kommune && kommune !== ort) parts.push(kommune);
+      if (landkreis && landkreis !== kommune) parts.push(landkreis);
+
+      parts.push("Brandenburg");
+      parts.push("Deutschland");
+
+      return parts.filter(Boolean).join(", ");
+    }
+
+    function showGeoResult(html, visible = true) {
+      const box = document.getElementById("geoResult");
+      box.innerHTML = html;
+      box.className = "geo-result" + (visible ? " visible" : "");
+    }
+
+    function findCoordinates() {
+      const query = buildGeocodeQuery();
+
+      if (!document.getElementById("ort").value.trim() && !document.getElementById("kommune").value.trim()) {
+        setStatus("Bitte mindestens Ort oder Kommune eintragen.", "error");
+        return;
+      }
+
+      setStatus("Koordinaten werden gesucht …");
+      showGeoResult(`<strong>Suche läuft …</strong>${query}`);
+
+      const url = "https://nominatim.openstreetmap.org/search"
+        + "?format=jsonv2"
+        + "&limit=5"
+        + "&countrycodes=de"
+        + "&addressdetails=1"
+        + "&q=" + encodeURIComponent(query);
+
+      fetch(url, {
+        headers: {
+          "Accept": "application/json"
+        }
+      })
+        .then(response => {
+          if (!response.ok) throw new Error("Geocoding-Dienst nicht erreichbar");
+          return response.json();
+        })
+        .then(results => {
+          if (!Array.isArray(results) || results.length === 0) {
+            setStatus("Keine Koordinaten gefunden. Suchbegriff bitte genauer machen.", "error");
+            showGeoResult(`<strong>Keine Treffer</strong>Gesucht wurde: ${query}`);
+            return;
+          }
+
+          const best = results[0];
+          const lat = Number(best.lat);
+          const lng = Number(best.lon);
+
+          const displayName = best.display_name || query;
+
+          showGeoResult(`
+            <strong>Gefunden:</strong>
+            ${displayName}<br>
+            <strong>Koordinaten:</strong>
+            ${lat.toFixed(6)}, ${lng.toFixed(6)}<br><br>
+            <button type="button" class="primary" onclick="applyCoordinates(${lat}, ${lng})">Koordinaten übernehmen</button>
+            <button type="button" onclick="previewCoordinates(${lat}, ${lng})">In Google Maps prüfen</button>
+          `);
+
+          setStatus("Koordinaten gefunden. Bitte prüfen und übernehmen.", "ok");
+        })
+        .catch(error => {
+          console.error(error);
+          setStatus("Koordinatensuche fehlgeschlagen. Prüfe Internet/CORS oder suche manuell über Google Maps.", "error");
+          showGeoResult(`<strong>Fehler</strong>Die automatische Suche konnte nicht ausgeführt werden.`);
+        });
+    }
+
+    function applyCoordinates(lat, lng) {
+      document.getElementById("lat").value = Number(lat).toFixed(6);
+      document.getElementById("lng").value = Number(lng).toFixed(6);
+      setStatus("Koordinaten übernommen. Eintrag bitte speichern.", "ok");
+    }
+
+    function previewCoordinates(lat, lng) {
+      window.open(`https://www.google.com/maps?q=${lat},${lng}`, "_blank", "noopener");
+    }
+
+    function openMaps() {
+      const entry = readForm();
+
+      if (!entry.lat || !entry.lng) {
+        setStatus("Bitte zuerst Koordinaten eintragen.", "error");
+        return;
+      }
+
+      window.open(`https://www.google.com/maps?q=${entry.lat},${entry.lng}`, "_blank", "noopener");
+    }
+
+    function openWhatsapp() {
+      const entry = readForm();
+
+      if (!entry.link) {
+        setStatus("Kein WhatsApp-Link eingetragen.", "error");
+        return;
+      }
+
+      window.open(entry.link, "_blank", "noopener");
+    }
+
+    document.getElementById("fileInput").addEventListener("change", event => {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        try {
+          const data = JSON.parse(reader.result);
+          if (!Array.isArray(data)) throw new Error("JSON ist kein Array");
+
+          channels = data.map(normalizeEntry);
+          sortChannels();
+          selectedIndex = -1;
+          renderList();
+          updatePreview();
+          setStatus("Lokale JSON geladen.", "ok");
+        } catch (error) {
+          setStatus("JSON konnte nicht gelesen werden: " + error.message, "error");
+        }
+      };
+
+      reader.readAsText(file, "utf-8");
+    });
+
+    document.getElementById("searchInput").addEventListener("input", renderList);
+
+    addEntry();
+    renderList();
+  </script>
+</body>
+</html>
