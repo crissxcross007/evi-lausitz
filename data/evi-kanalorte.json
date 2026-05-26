@@ -286,6 +286,17 @@
     "link": "https://www.whatsapp.com/channel/0029Vb9zdpT11ulGlwf18l3K"
   },
   {
+    "name": "Einsatzticker Spremberg",
+    "landkreis": "Spree-Neiße",
+    "kommune": "Spremberg",
+    "ort": "Spremberg",
+    "typ": "Amt/Gemeinde/Stadt",
+    "eviAlarmierung": true,
+    "lat": 51.571451,
+    "lng": 14.38043,
+    "link": "https://whatsapp.com/channel/0029VbDB3D13gvWTCK605m3Q"
+  },
+  {
     "name": "Feuerwehr Tauer",
     "landkreis": "Spree-Neiße",
     "kommune": "Tauer",
